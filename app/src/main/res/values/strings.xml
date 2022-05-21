@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">cibo</string>
+    <string name="history">History</string>
+    <string name="scan">Scan</string>
+    <string name="profile">Profile</string>
+    <string name="camera_permission_explanation">I need to access your camera to scan the QR code</string>
+    <string name="permission_required_dialog_title">Necessary permission</string>
+    <string name="permission_required_dialog_content">I need the camera permission to let you scan the QR code</string>
 </resources>

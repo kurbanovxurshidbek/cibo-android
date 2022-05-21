@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_shopping_basket"
+        android:title="@string/history"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="@color/white" />
+
+    <item
+        android:id="@+id/scan"
+        android:icon="@drawable/ic_qr_code_scanner"
+        android:title="@string/scan"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person"
+        android:title="@string/profile"
+        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_iconColor="#ffffff"
+        app:cnb_textColor="#ffffff" />
+</menu>
