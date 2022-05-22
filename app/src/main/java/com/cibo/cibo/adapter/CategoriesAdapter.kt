@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cibo.cibo.R
 import com.cibo.cibo.model.Category
@@ -36,7 +37,7 @@ class CategoriesAdapter(
         fun bind(category: Category) {
             view.findViewById<TextView>(R.id.categoryName).text = category.name
             view.findViewById<RecyclerView>(R.id.recyclerView).apply {
-                layoutManager = GridLayoutManager(context,2)
+                layoutManager = GridLayoutManager(context, 2)
                 adapter = ItemsAdapter(view.context, category.listOfItems)
             }
         }

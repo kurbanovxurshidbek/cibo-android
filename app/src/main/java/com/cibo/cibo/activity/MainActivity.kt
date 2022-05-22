@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ActivityMainBinding
+import com.cibo.cibo.fragment.RestaurantFragment
 import com.cibo.cibo.fragment.ScanFragment
 
 
@@ -20,6 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.chipNavigation.setItemSelected(R.id.scan,true)
-        supportFragmentManager.beginTransaction().replace(R.id.container, ScanFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, RestaurantFragment()).commit()
     }
 }

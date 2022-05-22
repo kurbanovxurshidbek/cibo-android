@@ -9,71 +9,40 @@
         android:id="@+id/motionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutDescription="@xml/detail_motion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layoutDescription="@xml/detail_motion">
 
-        <ImageView
-            android:id="@+id/detailImageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
+    <ImageView
+        android:id="@+id/detailImageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:background="@color/white"
-            android:id="@+id/nestedScroll"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detailImageView">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:ignore="UselessLeaf">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailImageView"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabMode="scrollable"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:background="@color/white"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="KFC"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tabLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="8dp"
-                    app:tabIndicatorAnimationMode="elastic"
-                    app:tabMode="scrollable" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:nestedScrollingEnabled="false"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_category" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        android:background="@color/white"/>
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 

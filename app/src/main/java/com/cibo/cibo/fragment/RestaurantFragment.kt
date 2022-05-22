@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.cibo.cibo.R
@@ -35,6 +36,12 @@ class RestaurantFragment : BaseFragment() {
 
         tabLayout = view.findViewById(R.id.tabLayout)
         recyclerView = view.findViewById(R.id.recyclerView)
+
+        recyclerView.layoutManager = object : LinearLayoutManager(requireContext()){
+            override fun canScrollVertically(): Boolean {
+                return true
+            }
+        }
 
         initTabLayout()
         initRecycler()
