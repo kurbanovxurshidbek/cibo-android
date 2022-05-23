@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.cibo.cibo.model.Item
 
-class ItemsAdapter(private val context: Context, private var items: List<Item>) : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
+class ItemsAdapter(private val context: Context, private var items: List<Item>) :
+    RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
@@ -25,9 +27,10 @@ class ItemsAdapter(private val context: Context, private var items: List<Item>) 
         return items.size
     }
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: Item) {
-            view.findViewById<TextView>(R.id.textViewContent).text = item.content
+            view.findViewById<TextView>(R.id.tv_food_name).text = item.content
+            Glide.with(context).load(item.img).into(view.findViewById(R.id.iv_food_photo))
         }
     }
 }

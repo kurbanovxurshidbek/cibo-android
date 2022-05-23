@@ -6,7 +6,7 @@
         android:id="@+id/history"
         android:icon="@drawable/ic_shopping_basket"
         android:title="@string/history"
-        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_backgroundColor="@color/teal_700"
         app:cnb_iconColor="#ffffff"
         app:cnb_textColor="@color/white" />
 
@@ -14,7 +14,7 @@
         android:id="@+id/scan"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="@string/scan"
-        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_backgroundColor="@color/teal_700"
         app:cnb_iconColor="#ffffff"
         app:cnb_textColor="#ffffff" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_person"
         android:title="@string/profile"
-        app:cnb_backgroundColor="@color/colorPrimary"
+        app:cnb_backgroundColor="@color/teal_700"
         app:cnb_iconColor="#ffffff"
         app:cnb_textColor="#ffffff" />
 </menu>

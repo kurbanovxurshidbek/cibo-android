@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.ResultPoint
@@ -31,18 +32,22 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
     private lateinit var beepManager: BeepManager
     private lateinit var scannerView: DecoratedBarcodeView
     private lateinit var btn_onOff: Button
+    private lateinit var ivPreview: ImageView
     private var isScanerActive: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_scan, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_scan, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        ivPreview = view.findViewById(R.id.iv_preview)
+        Glide.with(requireContext()).load("https://me-menu.com/public/static/qr-scan.jpg")
+            .into(ivPreview)
 
         scannerView = view.findViewById(R.id.QRScannerView)
         btn_onOff = view.findViewById(R.id.btn_onOff)
@@ -51,19 +56,10 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         beepManager = BeepManager(requireActivity())
         scannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
         scannerView.setStatusText("")
+        showQR()
 
         btn_onOff.setOnClickListener {
-
-            if (isScanerActive) {
-                isScanerActive = false
-                scannerView.pause()
-                scannerView.visibility = View.GONE
-            } else {
-                isScanerActive = true
-                scannerView.resume()
-                scannerView.visibility = View.VISIBLE
-            }
-
+            showQR()
         }
 
         scannerView.decodeContinuous(object : BarcodeCallback {
@@ -107,6 +103,22 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         scannerView.resume()
     }
 
+
+    private fun showQR() {
+        if (isScanerActive) {
+            isScanerActive = false
+            scannerView.pause()
+            scannerView.visibility = View.GONE
+            ivPreview.visibility = View.VISIBLE
+            btn_onOff.text = "Let's Scanning"
+        } else {
+            isScanerActive = true
+            scannerView.resume()
+            scannerView.visibility = View.VISIBLE
+            ivPreview.visibility = View.GONE
+            btn_onOff.text = "Cancel"
+        }
+    }
 
     //////////////////////////////////////////////
 
