@@ -11,6 +11,11 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_category.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/menu/nav_item.xml" value="0.2734375" />
+        <entry key="app/src/main/res/drawable/bg_btn_intro_page.xml" value="0.1455" />
+        <entry key="app/src/main/res/layout/activity_base.xml" value="0.140625" />
+        <entry key="app/src/main/res/layout/activity_intro_page.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/item_intro_page.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/settings_page.xml" value="0.2942708333333333" />
       </map>
     </option>
