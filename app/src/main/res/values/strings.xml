@@ -6,4 +6,15 @@
     <string name="camera_permission_explanation">I need to access your camera to scan the QR code</string>
     <string name="permission_required_dialog_title">Necessary permission</string>
     <string name="permission_required_dialog_content">I need the camera permission to let you scan the QR code</string>
+
+    <string name="str_skip">Skip</string>
+    <string name="str_continue">Continue</string>
+    <string name="str_description">Description</string>
+    <string name="str_qr_code_description">Qr ni scan qiling</string>
+    <string name="str_description_menu">Menu ni oling va Buyurtma bering</string>
+    <string name="str_menu_order">Buyurtma bering</string>
+    <string name="str_menu_order_phone">Telefoningiz orqali qulay tarzda buyurtma bering</string>
+
+    <string name="str_save_your_time">Save your time</string>
+    <string name="str_get_started">Boshlash</string>
 </resources>

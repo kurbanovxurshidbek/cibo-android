@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibo">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.IntroPageActivity"
+            android:exported="false" />
+        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -30,8 +30,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
+    viewBinding {
+        enabled = true
     }
 }
 
@@ -65,5 +65,8 @@ dependencies {
     // Not upgrade, because otherwise will work only on api > 24
     implementation 'com.google.zxing:core:3.3.0'
     implementation 'pub.devrel:easypermissions:3.0.0'
+
+    // dots indicator for intro page
+    implementation("com.tbuonomo:dotsindicator:4.3")
 
 }
