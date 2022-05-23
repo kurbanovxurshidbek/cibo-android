@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ActivityMainBinding
+import com.cibo.cibo.fragment.ProfileFragment
 import com.cibo.cibo.fragment.RestaurantFragment
 import com.cibo.cibo.fragment.ScanFragment
 
