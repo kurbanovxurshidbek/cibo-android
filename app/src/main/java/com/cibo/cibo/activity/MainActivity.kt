@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.chipNavigation.setItemSelected(R.id.scan, true)
-        supportFragmentManager.beginTransaction().replace(R.id.container, ScanFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.container, RestaurantFragment())
             .commit()
     }
 

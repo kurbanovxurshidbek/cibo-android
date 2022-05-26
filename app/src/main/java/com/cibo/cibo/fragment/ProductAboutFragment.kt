@@ -2,6 +2,7 @@ package com.cibo.cibo.fragment
 
 
 import android.annotation.SuppressLint
+import android.icu.number.IntegerWidth
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,11 +47,24 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
     private fun initViews() {
         val item: Item = arguments?.getSerializable("productAbout") as Item
         bn.apply {
-            tvProductAbout.text = item.img
+            tvProductAbout.text = item.img + "\n\n\n" + item.img
             tvProductName.text = item.content
             tvProductPrice.text = "90 000 so`m"
             tvProductCount.text = "1"
             Glide.with(requireContext()).load(item.img).into(bn.ivFoodDetail)
+
+            btnCountPlus.setOnClickListener {
+                tvProductCount.text =
+                    (Integer.valueOf(tvProductCount.text.toString()) + 1).toString()
+            }
+
+            btnCountMinus.setOnClickListener {
+                tvProductCount.apply {
+                    if (Integer.valueOf(text.toString()) > 1) {
+                        text = (Integer.valueOf(text.toString()) - 1).toString()
+                    }
+                }
+            }
         }
     }
 
@@ -59,12 +73,8 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
         return android.R.color.transparent
     }
 
-    override fun isSheetAlwaysExpanded(): Boolean {
-        return true
-    }
-
-    override fun getExpandedHeight(): Int {
-        return -2
+    override fun getPeekHeight(): Int {
+        return -1
     }
 
     override fun animateStatusBar(): Boolean {

@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal|bottom">
+            android:gravity="center">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="80dp"
@@ -27,7 +27,8 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,17 +82,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EAEAEA" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="15dp">
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:id="@+id/tv_product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -101,38 +109,47 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:text="–"
                         android:id="@+id/btn_count_minus"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:background="@drawable/ic_triangle"
-                        android:backgroundTint="@color/teal_700"
+                        android:backgroundTint="#A1A1A1"
                         android:rotation="180"
-                        android:textColor="@color/white"
-                        android:textSize="50sp" />
+                        android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/tv_product_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:paddingHorizontal="5dp"
                         android:text="1"
+                        android:minEms="1"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
+                        android:text="+"
                         android:id="@+id/btn_count_plus"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:background="@drawable/ic_triangle"
-                        android:backgroundTint="@color/teal_700"
-                        android:textColor="@color/white"
-                        android:textSize="50sp" />
+                        android:backgroundTint="#FFC107"
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
             </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/teal_700"
+                android:paddingVertical="15dp"
+                android:text="Add to cart" />
 
         </LinearLayout>
 
