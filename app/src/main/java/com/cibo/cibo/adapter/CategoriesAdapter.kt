@@ -1,45 +1,67 @@
 package com.cibo.cibo.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.cibo.cibo.R
+import androidx.recyclerview.widget.*
+import com.cibo.cibo.databinding.ItemCategoryBinding
 import com.cibo.cibo.model.Category
+import com.cibo.cibo.model.Item
 
-class CategoriesAdapter(
-    private val context: Context,
-    private val listOfCategories: List<Category>
-) : RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        return CategoryViewHolder(
-            LayoutInflater.from(context).inflate(R.layout.item_category, parent, false)
+class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
+    private val dif = AsyncListDiffer(this, ITEM_DIFF)
+    private var itemClickListener: ItemsAdapter.ItemClickListener? = null
+
+    inner class VH(private val binding: ItemCategoryBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            val details = dif.currentList[adapterPosition]
+            binding.apply {
+                categoryName.text = details.name
+                recyclerView.apply {
+                    layoutManager = GridLayoutManager(context, 2)
+                    adapter = ItemsAdapter(
+                        context, details.listOfItems, object : ItemsAdapter.ItemClickListener {
+                            override fun itemClick(item: Item) {
+                                itemClickListener!!.itemClick(item)
+                            }
+                        })
+                }
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        return VH(
+            ItemCategoryBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(listOfCategories[position])
+
+    override fun onBindViewHolder(holder: VH, position: Int) = holder.bind()
+
+
+    fun submitList(list: List<Category>, itemClickListener: ItemsAdapter.ItemClickListener) {
+        this.itemClickListener = itemClickListener
+        dif.submitList(list)
     }
 
-    override fun getItemCount(): Int {
-        return listOfCategories.size
-    }
+    override fun getItemCount(): Int = dif.currentList.size
 
-    class CategoryViewHolder(
-        private val view: View
-    ) : RecyclerView.ViewHolder(view) {
+    companion object {
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Category>() {
+            override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean =
+                oldItem.name == newItem.name
 
-        fun bind(category: Category) {
-            view.findViewById<TextView>(R.id.categoryName).text = category.name
-            view.findViewById<RecyclerView>(R.id.recyclerView).apply {
-                layoutManager = GridLayoutManager(context, 2)
-                adapter = ItemsAdapter(view.context, category.listOfItems)
-            }
+            @SuppressLint("DiffUtilEquals")
+            override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean =
+                oldItem == newItem
         }
     }
 }
