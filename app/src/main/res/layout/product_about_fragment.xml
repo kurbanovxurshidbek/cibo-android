@@ -111,8 +111,8 @@
                     <Button
                         android:text="–"
                         android:id="@+id/btn_count_minus"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
                         android:background="@drawable/ic_triangle"
                         android:backgroundTint="#A1A1A1"
                         android:rotation="180"
