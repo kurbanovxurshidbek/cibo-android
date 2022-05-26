@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ActivityMainBinding
 import com.cibo.cibo.fragment.RestaurantFragment
+import com.cibo.cibo.fragment.ScanFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,17 +26,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.chipNavigation.setItemSelected(R.id.scan, true)
-        supportFragmentManager.beginTransaction().replace(R.id.container, RestaurantFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.container, ScanFragment())
             .commit()
-    }
-
-    @SuppressLint("ObsoleteSdkInt")
-    fun updateStatusBarColor(color: String?) { // Color must be in hexadecimal fromat
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window = window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.statusBarColor = Color.parseColor(color)
-        }
     }
 
 }
