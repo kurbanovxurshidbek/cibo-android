@@ -69,4 +69,7 @@ dependencies {
     // dots indicator for intro page
     implementation("com.tbuonomo:dotsindicator:4.3")
 
+    // SuperBottomSheet for about product page
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:2.0.0'
+
 }

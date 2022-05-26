@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
+import com.cibo.cibo.activity.MainActivity
 import com.cibo.cibo.adapter.CategoriesAdapter
 import com.cibo.cibo.adapter.ItemsAdapter
 import com.cibo.cibo.databinding.FragmentRestaurantBinding
@@ -35,20 +37,14 @@ class RestaurantFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews(view)
+        initViews()
     }
 
-    private fun initViews(view: View) {
+    private fun initViews() {
 
         Glide.with(requireContext())
             .load("https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167")
-            .into(view.findViewById(R.id.detailImageView))
-
-        bn.recyclerView.layoutManager = object : LinearLayoutManager(requireContext()) {
-            override fun canScrollVertically(): Boolean {
-                return true
-            }
-        }
+            .into(bn.detailImageView)
 
         initTabLayout()
         initRecycler()
@@ -66,39 +62,14 @@ class RestaurantFragment : BaseFragment() {
         val adapter = CategoriesAdapter()
         adapter.submitList(categories, object : ItemsAdapter.ItemClickListener {
             override fun itemClick(item: Item) {
-                showAboutProduct(item)
+                val productAboutFragment = ProductAboutFragment.newInstance(item)
+                productAboutFragment.show(parentFragmentManager, "ProductAbout")
             }
         })
+        bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         bn.recyclerView.adapter = adapter
     }
 
-    private fun showAboutProduct(item: Item) {
-
-        val bindingInclude = bn.bmSheetAbout
-        Glide.with(requireContext()).load(item.img).into(bindingInclude.ivFoodDetail)
-        bindingInclude.tvProductAbout.text = item.img
-        bindingInclude.tvProductPrice.text = "90 000 so`m"
-        bindingInclude.tvProductName.text = item.content
-
-        val sheetBehavior = BottomSheetBehavior.from(bindingInclude.aboutBottomSheet)
-        sheetBehavior.setBottomSheetCallback(object : BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) bn.mViewBg.visibility =
-                    View.GONE
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                Log.d("TAG", "onSlide: slideOffset$slideOffset")
-                bn.mViewBg.visibility = View.VISIBLE
-                bn.mViewBg.alpha = slideOffset
-            }
-        })
-        if (sheetBehavior.state == BottomSheetBehavior.STATE_EXPANDED) {
-            sheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
-        } else {
-            sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-        }
-    }
 
     private fun initMediator() {
         TabbedListMediator(
