@@ -3,10 +3,14 @@ package com.cibo.cibo.activity
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.View
 import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ActivitySplashBinding
@@ -19,13 +23,11 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        setTransparentStatusBar()
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViews()
+
     }
 
     private fun initViews() {
@@ -63,6 +65,22 @@ class SplashActivity : AppCompatActivity() {
             }
         }.start()
     }
+
+
+    private fun setTransparentStatusBar() {
+        window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = Color.TRANSPARENT
+
+            getWindow().getDecorView()
+                .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) //  set status text dark
+            getWindow().setStatusBarColor(ContextCompat.getColor(this,
+                R.color.white)) // set status background white
+        }
+    }
+
+
 }
 
 

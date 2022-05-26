@@ -18,4 +18,12 @@
     <string name="str_save_your_time">Save your time</string>
     <string name="str_get_started">Boshlash</string>
     <string name="str_log_out">Log out</string>
+    <string name="str_choose_language">Choose language</string>
+    <string name="str_uzbek">O`zbek</string>
+    <string name="str_english">English</string>
+    <string name="str_russia">Russia</string>
+    <string name="str_language">Language</string>
+    <string name="str_history">History</string>
+    <string name="str_change_settings">Change settings</string>
+    <string name="str_about_us">About Us</string>
 </resources>
