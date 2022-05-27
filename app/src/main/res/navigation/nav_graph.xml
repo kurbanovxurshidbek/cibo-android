@@ -7,10 +7,15 @@
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.cibo.cibo.fragment.ScanFragment"
-        android:label="ScanFragment" />
+        android:label="ScanFragment" >
+        <action
+            android:id="@+id/actionOpenRestaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.cibo.cibo.fragment.ProfileFragment"
+<<<<<<< HEAD
         android:label="ProfileFragment" >
         <action
             android:id="@+id/openEditProfile"
@@ -34,4 +39,11 @@
         android:id="@+id/aboutUsFragment"
         android:name="com.cibo.cibo.fragment.AboutUsFragment"
         android:label="AboutUsFragment" />
+=======
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="com.cibo.cibo.fragment.RestaurantFragment"
+        android:label="RestaurantFragment" />
+>>>>>>> 83b5218c568037bc6987e07d5fb58a0c7b4de41e
 </navigation>
