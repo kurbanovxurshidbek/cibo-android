@@ -1,15 +1,15 @@
 package com.cibo.cibo.fragment
 
 
-import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentProfileBinding
 import org.greenrobot.eventbus.EventBus
@@ -25,26 +25,13 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        requireActivity().window.getDecorView()
+            .setSystemUiVisibility(ContextCompat.getColor(requireContext(), R.color.black)) //  set status text dark
+        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
+            R.color.teal_700)) // set status bar color
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onResultReceived(msg: String){
-        bn.tvFullname.text = msg
-    }
-
-    override fun onStart() {
-        super.onStart()
-        EventBus.getDefault().register(this)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        EventBus.getDefault().unregister(this)
-    }
-
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +41,6 @@ class ProfileFragment : BaseFragment() {
 
     private fun initView() {
 
-
         val ll_language: LinearLayout = bn.llLanguage
         ll_language.setOnClickListener {
             showChooseLanguage()
@@ -62,24 +48,21 @@ class ProfileFragment : BaseFragment() {
 
         val ll_history: LinearLayout = bn.llHistory
         ll_history.setOnClickListener {
+            findNavController().navigate(R.id.openHistory)
+        }
+
+        val ll_edit_profile: LinearLayout = bn.llChangeSettings
+        ll_edit_profile.setOnClickListener {
+            findNavController().navigate(R.id.openEditProfile)
 
         }
 
-        val ll_change_settings: LinearLayout = bn.llChangeSettings
-        ll_change_settings.setOnClickListener {
-            openChangeSettingsActivity()
-//            openChangeSettings()
+        val ll_about_us: LinearLayout = bn.llAboutUs
+        ll_about_us.setOnClickListener {
+            findNavController().navigate(R.id.openAboutUs)
         }
-
     }
 
-    private fun openChangeSettingsActivity(){
-
-    }
-/*    private fun openChangeSettings() {
-        requireFragmentManager().beginTransaction().replace(R.id.container, ChangeSettingsFragment())
-            .commit()
-    }*/
 
     private fun showChooseLanguage() {
         val dialog = Dialog(requireContext())

@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.cibo.cibo.R
-import com.cibo.cibo.databinding.FragmentChangeSettingsBinding
-import org.greenrobot.eventbus.EventBus
+import com.cibo.cibo.databinding.FragmentEditProfileBinding
 
 class EditProfileFragment : BaseFragment() {
-    private var _bn: FragmentChangeSettingsBinding? = null
+    private var _bn: FragmentEditProfileBinding? = null
     private val bn get() = _bn!!
 
     override fun onCreateView(
@@ -21,8 +20,8 @@ class EditProfileFragment : BaseFragment() {
         requireActivity().window.getDecorView()
             .setSystemUiVisibility(ContextCompat.getColor(requireContext(), R.color.black)) //  set status text dark
        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
-            R.color.intro_text_color)) // set status bar color
-        _bn = FragmentChangeSettingsBinding.inflate(inflater, container, false)
+            R.color.teal_700)) // set status bar color
+        _bn = FragmentEditProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
 
@@ -31,30 +30,21 @@ class EditProfileFragment : BaseFragment() {
         initView()
     }
 
-    override fun onResume() {
-        super.onResume()
+
+    private fun initView() {
         val btn_back = bn.btnBack
         val btn_done = bn.btnDone
         val et_name = bn.etName
         val et_number = bn.etNumber
 
-        btn_back.setOnClickListener {
 
+        btn_back.setOnClickListener {
+            requireActivity().onBackPressed()
         }
 
         btn_done.setOnClickListener {
-            val msg = et_name.text
-            if (msg.isNotEmpty()){
-                EventBus.getDefault().post(msg)
-            }
-
+            requireActivity().onBackPressed()
         }
-      }
     }
-
-    private fun initView() {
-
-
-
 
 }

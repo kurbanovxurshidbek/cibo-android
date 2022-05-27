@@ -11,5 +11,27 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.cibo.cibo.fragment.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/openEditProfile"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/openHistory"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/openAboutUs"
+            app:destination="@id/aboutUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.cibo.cibo.fragment.EditProfileFragment"
+        android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.cibo.cibo.fragment.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.cibo.cibo.fragment.AboutUsFragment"
+        android:label="AboutUsFragment" />
 </navigation>

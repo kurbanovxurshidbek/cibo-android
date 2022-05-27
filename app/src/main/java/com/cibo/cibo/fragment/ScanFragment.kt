@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
+import com.cibo.cibo.databinding.FragmentScanBinding
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.ResultPoint
 import com.google.zxing.client.android.BeepManager
@@ -23,6 +25,9 @@ import pub.devrel.easypermissions.EasyPermissions
 class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
     val TAG: String = ScanFragment::class.java.simpleName
+
+    private var _bn: FragmentScanBinding? = null
+    private val bn get() = _bn!!
 
     companion object {
         const val RC_CAMERA = 1
@@ -39,18 +44,23 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_scan, container, false)
+        requireActivity().window.getDecorView()
+            .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) //  set status text dark
+        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
+            R.color.white)) // set status bar color
+        _bn = FragmentScanBinding.inflate(inflater, container, false)
+        return bn.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ivPreview = view.findViewById(R.id.iv_preview)
+        ivPreview = bn.ivPreview
         Glide.with(requireContext()).load("https://me-menu.com/public/static/qr-scan.jpg")
             .into(ivPreview)
 
-        scannerView = view.findViewById(R.id.QRScannerView)
-        btn_onOff = view.findViewById(R.id.btn_onOff)
+        scannerView = bn.QRScannerView
+        btn_onOff = bn.btnOnOff
 
         val formats = mutableListOf(BarcodeFormat.QR_CODE)
         beepManager = BeepManager(requireActivity())
@@ -119,8 +129,6 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
             btn_onOff.text = "Let's Scanning"
         }
     }
-
-    //////////////////////////////////////////////
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
