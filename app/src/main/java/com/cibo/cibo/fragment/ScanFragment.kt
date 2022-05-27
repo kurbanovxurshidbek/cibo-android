@@ -68,7 +68,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
                     beepManager.isBeepEnabled = false
                     beepManager.playBeepSoundAndVibrate()
 
-                    if (result.text == "cibo") {
+                  /*  if (result.text == "cibo") {
 
                         requireActivity().supportFragmentManager
                             .beginTransaction()
@@ -78,7 +78,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
                     } else {
                         Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
                             .show()
-                    }
+                    }*/
                 }
             }
 
