@@ -33,7 +33,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
     private lateinit var scannerView: DecoratedBarcodeView
     private lateinit var btn_onOff: Button
     private lateinit var ivPreview: ImageView
-    private var isScanerActive: Boolean = true
+    private var isScanerActive: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +56,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         beepManager = BeepManager(requireActivity())
         scannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
         scannerView.setStatusText("")
-        showQR()
+
 
         btn_onOff.setOnClickListener {
             showQR()
@@ -68,17 +68,17 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
                     beepManager.isBeepEnabled = false
                     beepManager.playBeepSoundAndVibrate()
 
-                  /*  if (result.text == "cibo") {
+                    if (result.text == "cibo") {
 
                         requireActivity().supportFragmentManager
                             .beginTransaction()
-                            .replace(R.id.container, RestaurantFragment())
+                            .replace(R.id.nav_host_fragment, RestaurantFragment())
                             .addToBackStack(null)
                             .commit()
                     } else {
                         Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
                             .show()
-                    }*/
+                    }
                 }
             }
 
@@ -91,12 +91,12 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onPause() {
         super.onPause()
-        scannerView.pause()
+        showQR()
     }
 
     override fun onResume() {
         super.onResume()
-        scannerView.resume()
+        showQR()
     }
 
     private fun openScanner() {
@@ -107,16 +107,16 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
     private fun showQR() {
         if (isScanerActive) {
             isScanerActive = false
-            scannerView.pause()
-            scannerView.visibility = View.GONE
-            ivPreview.visibility = View.VISIBLE
-            btn_onOff.text = "Let's Scanning"
-        } else {
-            isScanerActive = true
             scannerView.resume()
             scannerView.visibility = View.VISIBLE
             ivPreview.visibility = View.GONE
             btn_onOff.text = "Cancel"
+        } else {
+            isScanerActive = true
+            scannerView.pause()
+            scannerView.visibility = View.GONE
+            ivPreview.visibility = View.VISIBLE
+            btn_onOff.text = "Let's Scanning"
         }
     }
 

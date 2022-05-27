@@ -48,7 +48,6 @@ class EditProfileFragment : BaseFragment() {
                 EventBus.getDefault().post(msg)
             }
 
-            requireFragmentManager().beginTransaction().replace(R.id.container,ProfileFragment()).commit()
         }
       }
     }
