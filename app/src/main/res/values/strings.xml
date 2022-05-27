@@ -24,6 +24,8 @@
     <string name="str_russia">Russia</string>
     <string name="str_language">Language</string>
     <string name="str_history">History</string>
-    <string name="str_change_settings">Change settings</string>
+    <string name="str_edit_profile">Edit profile</string>
     <string name="str_about_us">About Us</string>
+    <string name="str_name_required">Name (required)</string>
+    <string name="str_number">Phone number (required)</string>
 </resources>

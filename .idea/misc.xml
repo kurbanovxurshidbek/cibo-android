@@ -3,37 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/button_background_half_circle.xml" value="0.1925" />
-=======
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/bg_et_change_settings.xml" value="0.157" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.158" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/blue_rectengle.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/button_rounded.xml" value="0.1595" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_arrow.xml" value="0.1475" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_back.xml" value="0.157" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_done.xml" value="0.157" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_minus.xml" value="0.124" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_plus.xml" value="0.124" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/linear_layout_rectangle.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/linear_rounded.xml" value="0.1605" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/white_rectangle.xml" value="0.1595" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout-v26/fragment_change_settings.xml" value="0.253125" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_change_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/bottom_sheet.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_change_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/product_about_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/settings_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/menu/nav_item.xml" value="0.25416666666666665" />
->>>>>>> 85248743aeec9a7f15f63a377ed08ac9a0b23a99
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_shopping_basket.xml" value="0.1665" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_triangle.xml" value="0.2195" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_triangle_minus.xml" value="0.2195" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_intro_page.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/custom_bottom_sheet.xml" value="0.264" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_restaurant.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_restaurant.xml" value="0.37962962962962965" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.25" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_category.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_intro_page.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.264" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/product_about_fragment.xml" value="0.264" />
-        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/settings_page.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/menu/nav_item.xml" value="0.2734375" />
       </map>
     </option>

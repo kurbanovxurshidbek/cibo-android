@@ -1,21 +1,11 @@
 package com.cibo.cibo.activity
 
-import android.annotation.SuppressLint
-import android.graphics.Color
-import android.os.Build
+
 import android.os.Bundle
-import android.view.Window
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ActivityMainBinding
-import com.cibo.cibo.fragment.ProfileFragment
-import com.cibo.cibo.fragment.RestaurantFragment
-import com.cibo.cibo.fragment.ScanFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.cibo.cibo.fragment.EditProfileFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        binding.chipNavigation.setItemSelected(R.id.scan,true)
+        supportFragmentManager.beginTransaction().replace(R.id.container,EditProfileFragment()).commit()
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
     }

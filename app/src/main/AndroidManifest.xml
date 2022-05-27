@@ -13,9 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibo">
         <activity
+            android:name=".ChangeSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.IntroPageActivity"
             android:exported="false" />
-        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">

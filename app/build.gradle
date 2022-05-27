@@ -79,4 +79,8 @@ dependencies {
     // noinspection GradleDependency
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+    //Eventbus for fragment communication
+    implementation("org.greenrobot:eventbus:3.3.1")
+
+
 }

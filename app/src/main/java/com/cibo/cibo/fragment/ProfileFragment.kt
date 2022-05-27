@@ -11,43 +11,71 @@ import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.cibo.cibo.R
+import com.cibo.cibo.databinding.FragmentProfileBinding
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class ProfileFragment : BaseFragment() {
-
+    private var _bn: FragmentProfileBinding? = null
+    private val bn get() = _bn!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.fragment_profile, container, false)
-        return view
+        _bn = FragmentProfileBinding.inflate(inflater, container, false)
+        return bn.root
     }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onResultReceived(msg: String){
+        bn.tvFullname.text = msg
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
+
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView(view)
+        initView()
+
     }
 
-    private fun initView(view: View) {
+    private fun initView() {
 
-        val ll_language: LinearLayout = view.findViewById(R.id.ll_language)
+
+        val ll_language: LinearLayout = bn.llLanguage
         ll_language.setOnClickListener {
             showChooseLanguage()
         }
 
-        val ll_history: LinearLayout = view.findViewById(R.id.ll_history)
+        val ll_history: LinearLayout = bn.llHistory
         ll_history.setOnClickListener {
 
         }
 
-        val ll_change_settings: LinearLayout = view.findViewById(R.id.ll_change_settings)
+        val ll_change_settings: LinearLayout = bn.llChangeSettings
         ll_change_settings.setOnClickListener {
+            openChangeSettingsActivity()
 //            openChangeSettings()
         }
 
     }
 
+    private fun openChangeSettingsActivity(){
+
+    }
 /*    private fun openChangeSettings() {
         requireFragmentManager().beginTransaction().replace(R.id.container, ChangeSettingsFragment())
             .commit()
