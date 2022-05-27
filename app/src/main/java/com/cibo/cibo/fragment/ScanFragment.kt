@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.google.zxing.BarcodeFormat
@@ -69,12 +70,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
                     beepManager.playBeepSoundAndVibrate()
 
                     if (result.text == "cibo") {
-
-                        requireActivity().supportFragmentManager
-                            .beginTransaction()
-                            .replace(R.id.nav_host_fragment, RestaurantFragment())
-                            .addToBackStack(null)
-                            .commit()
+                        findNavController().navigate(R.id.actionOpenRestaurantFragment)
                     } else {
                         Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
                             .show()
