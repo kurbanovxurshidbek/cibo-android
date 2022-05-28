@@ -7,6 +7,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.bumptech.glide.Glide
@@ -62,8 +63,7 @@ class RestaurantFragment : BaseFragment() {
         val adapter = CategoriesAdapter()
         adapter.submitList(categories, object : ItemsAdapter.ItemClickListener {
             override fun itemClick(item: Item) {
-                val productAboutFragment = ProductAboutFragment.newInstance(item)
-                productAboutFragment.show(parentFragmentManager, "ProductAbout")
+                openFragment(R.id.openProductAbout, item)
             }
         })
         bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())

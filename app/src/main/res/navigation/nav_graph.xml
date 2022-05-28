@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/scanFragment">
 
@@ -27,20 +28,34 @@
             android:id="@+id/openAboutUs"
             app:destination="@id/aboutUsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.cibo.cibo.fragment.EditProfileFragment"
         android:label="EditProfileFragment" />
+
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.cibo.cibo.fragment.HistoryFragment"
         android:label="HistoryFragment" />
+
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.cibo.cibo.fragment.AboutUsFragment"
         android:label="AboutUsFragment" />
+
     <fragment
         android:id="@+id/restaurantFragment"
         android:name="com.cibo.cibo.fragment.RestaurantFragment"
-        android:label="RestaurantFragment" />
+        android:label="RestaurantFragment">
+        <action
+            android:id="@+id/openProductAbout"
+            app:destination="@id/bottomSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/bottomSheet"
+        android:name="com.cibo.cibo.fragment.ProductAboutFragment"
+        tools:layout="@layout/product_about_fragment" />
+
 </navigation>

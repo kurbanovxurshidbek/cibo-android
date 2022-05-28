@@ -8,11 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-<<<<<<< HEAD
 import androidx.core.content.ContextCompat
-=======
 import androidx.navigation.fragment.findNavController
->>>>>>> 83b5218c568037bc6987e07d5fb58a0c7b4de41e
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentScanBinding

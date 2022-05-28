@@ -11,7 +11,7 @@
         app:cnb_textColor="@color/white" />
 
     <item
-        android:id="@+id/scanFragment"
+        android:id="@+id/restaurantFragment"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="@string/scan"
         app:cnb_backgroundColor="@color/teal_700"

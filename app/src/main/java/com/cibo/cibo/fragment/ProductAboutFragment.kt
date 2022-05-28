@@ -16,7 +16,7 @@ import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment
 
 class ProductAboutFragment : SuperBottomSheetFragment() {
 
-    companion object {
+   /* companion object {
         fun newInstance(item: Item): ProductAboutFragment {
             val newFragment = ProductAboutFragment()
             val args = Bundle()
@@ -24,7 +24,7 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
             newFragment.arguments = args
             return newFragment
         }
-    }
+    }*/
 
     private var _bn: ProductAboutFragmentBinding? = null
     private val bn get() = _bn!!
