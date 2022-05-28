@@ -22,9 +22,6 @@
             android:id="@+id/openEditProfile"
             app:destination="@id/editProfileFragment" />
         <action
-            android:id="@+id/openHistory"
-            app:destination="@id/historyFragment" />
-        <action
             android:id="@+id/openAboutUs"
             app:destination="@id/aboutUsFragment" />
     </fragment>
@@ -35,11 +32,6 @@
         android:label="EditProfileFragment" />
 
     <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.cibo.cibo.fragment.HistoryFragment"
-        android:label="HistoryFragment" />
-
-    <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.cibo.cibo.fragment.AboutUsFragment"
         android:label="AboutUsFragment" />
@@ -48,14 +40,23 @@
         android:id="@+id/restaurantFragment"
         android:name="com.cibo.cibo.fragment.RestaurantFragment"
         android:label="RestaurantFragment">
+
         <action
-            android:id="@+id/openProductAbout"
-            app:destination="@id/bottomSheet" />
+            android:id="@+id/openProductAboutFragment"
+            app:destination="@id/productAboutFragment"
+            app:launchSingleTop="true"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_bottom"/>
     </fragment>
 
     <dialog
-        android:id="@+id/bottomSheet"
+        android:id="@+id/productAboutFragment"
         android:name="com.cibo.cibo.fragment.ProductAboutFragment"
-        tools:layout="@layout/product_about_fragment" />
+        android:label="ProductAboutFragment">
+
+        <action
+            android:id="@+id/backRestaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </dialog>
 
 </navigation>

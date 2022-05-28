@@ -2,19 +2,23 @@ package com.cibo.cibo.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.*
+import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ItemCategoryBinding
+import com.cibo.cibo.fragment.RestaurantFragment
 import com.cibo.cibo.model.Category
 import com.cibo.cibo.model.Item
 
 
 class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
-    private var itemClickListener: ItemsAdapter.ItemClickListener? = null
+    private var fragment: RestaurantFragment? = null
 
-    inner class VH(private val binding: ItemCategoryBinding) :
+    inner class VH(private val binding: ItemCategoryBinding, var fragment: RestaurantFragment) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             val details = dif.currentList[adapterPosition]
@@ -22,12 +26,7 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
                 categoryName.text = details.name
                 recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
-                    adapter = ItemsAdapter(
-                        context, details.listOfItems, object : ItemsAdapter.ItemClickListener {
-                            override fun itemClick(item: Item) {
-                                itemClickListener!!.itemClick(item)
-                            }
-                        })
+                    adapter = ItemsAdapter(fragment, details.listOfItems)
                 }
             }
         }
@@ -35,11 +34,8 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         return VH(
-            ItemCategoryBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            fragment!!
         )
     }
 
@@ -47,8 +43,8 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
     override fun onBindViewHolder(holder: VH, position: Int) = holder.bind()
 
 
-    fun submitList(list: List<Category>, itemClickListener: ItemsAdapter.ItemClickListener) {
-        this.itemClickListener = itemClickListener
+    fun submitList(fragment: RestaurantFragment, list: List<Category>) {
+        this.fragment = fragment
         dif.submitList(list)
     }
 

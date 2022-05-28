@@ -16,11 +16,7 @@ class EditProfileFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        requireActivity().window.getDecorView()
-            .setSystemUiVisibility(ContextCompat.getColor(requireContext(), R.color.black)) //  set status text dark
-       requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
-            R.color.teal_700)) // set status bar color
+    ): View {
         _bn = FragmentEditProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -30,19 +26,22 @@ class EditProfileFragment : BaseFragment() {
         initView()
     }
 
+    override fun onResume() {
+        super.onResume()
+//        changeStatusBar(R.color.black, R.color.teal_700)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
 
     private fun initView() {
-        val btn_back = bn.btnBack
-        val btn_done = bn.btnDone
-        val et_name = bn.etName
-        val et_number = bn.etNumber
-
-
-        btn_back.setOnClickListener {
+        bn.btnBack.setOnClickListener {
             requireActivity().onBackPressed()
         }
 
-        btn_done.setOnClickListener {
+        bn.btnDone.setOnClickListener {
             requireActivity().onBackPressed()
         }
     }

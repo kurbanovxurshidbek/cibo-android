@@ -41,6 +41,16 @@ class RestaurantFragment : BaseFragment() {
         initViews()
     }
 
+    override fun onResume() {
+        super.onResume()
+//        changeStatusBar(R.color.black, R.color.white)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
+
     private fun initViews() {
 
         Glide.with(requireContext())
@@ -61,11 +71,7 @@ class RestaurantFragment : BaseFragment() {
 
     private fun initRecycler() {
         val adapter = CategoriesAdapter()
-        adapter.submitList(categories, object : ItemsAdapter.ItemClickListener {
-            override fun itemClick(item: Item) {
-                openFragment(R.id.openProductAbout, item)
-            }
-        })
+        adapter.submitList(this, categories)
         bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         bn.recyclerView.adapter = adapter
     }

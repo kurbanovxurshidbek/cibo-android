@@ -12,11 +12,12 @@ import com.bumptech.glide.Glide
 import com.cibo.cibo.databinding.ProductAboutFragmentBinding
 import com.cibo.cibo.model.Item
 import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment
+import com.cibo.cibo.R
 
 
 class ProductAboutFragment : SuperBottomSheetFragment() {
 
-   /* companion object {
+    companion object {
         fun newInstance(item: Item): ProductAboutFragment {
             val newFragment = ProductAboutFragment()
             val args = Bundle()
@@ -24,7 +25,7 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
             newFragment.arguments = args
             return newFragment
         }
-    }*/
+    }
 
     private var _bn: ProductAboutFragmentBinding? = null
     private val bn get() = _bn!!
@@ -42,6 +43,17 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        dialog?.window?.attributes?.windowAnimations = R.style.BottomsheetDialogAnim
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
     }
 
     private fun initViews() {

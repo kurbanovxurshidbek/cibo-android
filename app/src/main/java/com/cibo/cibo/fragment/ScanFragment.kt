@@ -36,19 +36,13 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
     }
 
     private lateinit var beepManager: BeepManager
-    private lateinit var scannerView: DecoratedBarcodeView
-    private lateinit var btn_onOff: Button
     private lateinit var ivPreview: ImageView
-    private var isScanerActive: Boolean = false
+    private var isScannerActive: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        requireActivity().window.getDecorView()
-            .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) //  set status text dark
-        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
-            R.color.white)) // set status bar color
         _bn = FragmentScanBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -60,20 +54,17 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         Glide.with(requireContext()).load("https://me-menu.com/public/static/qr-scan.jpg")
             .into(ivPreview)
 
-        scannerView = bn.QRScannerView
-        btn_onOff = bn.btnOnOff
-
         val formats = mutableListOf(BarcodeFormat.QR_CODE)
         beepManager = BeepManager(requireActivity())
-        scannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
-        scannerView.setStatusText("")
+        bn.QRScannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
+        bn.QRScannerView.setStatusText("")
 
 
-        btn_onOff.setOnClickListener {
+        bn.btnOnOff.setOnClickListener {
             showQR()
         }
 
-        scannerView.decodeContinuous(object : BarcodeCallback {
+        bn.QRScannerView.decodeContinuous(object : BarcodeCallback {
             override fun barcodeResult(result: BarcodeResult?) {
                 result?.let {
                     beepManager.isBeepEnabled = false
@@ -102,27 +93,33 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onResume() {
         super.onResume()
+//        changeStatusBar(R.color.black, R.color.white)
         showQR()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
+
     private fun openScanner() {
-        scannerView.resume()
+        bn.QRScannerView.resume()
     }
 
 
     private fun showQR() {
-        if (isScanerActive) {
-            isScanerActive = false
-            scannerView.resume()
-            scannerView.visibility = View.VISIBLE
+        if (isScannerActive) {
+            isScannerActive = false
+            bn.QRScannerView.resume()
+            bn.QRScannerView.visibility = View.VISIBLE
             ivPreview.visibility = View.GONE
-            btn_onOff.text = "Cancel"
+            bn.btnOnOff.text = "Cancel"
         } else {
-            isScanerActive = true
-            scannerView.pause()
-            scannerView.visibility = View.GONE
+            isScannerActive = true
+            bn.QRScannerView.pause()
+            bn.QRScannerView.visibility = View.GONE
             ivPreview.visibility = View.VISIBLE
-            btn_onOff.text = "Let's Scanning"
+            bn.btnOnOff.text = "Let's Scanning"
         }
     }
 

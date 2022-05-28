@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/history"
+        android:id="@+id/restaurantFragment"
         android:icon="@drawable/ic_shopping_basket"
         android:title="@string/history"
         app:cnb_backgroundColor="@color/teal_700"
@@ -11,7 +11,7 @@
         app:cnb_textColor="@color/white" />
 
     <item
-        android:id="@+id/restaurantFragment"
+        android:id="@+id/scanFragment"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="@string/scan"
         app:cnb_backgroundColor="@color/teal_700"
