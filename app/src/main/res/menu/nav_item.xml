@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/restaurantFragment"
+        android:id="@+id/ordersFragment"
         android:icon="@drawable/ic_shopping_basket"
         android:title="@string/history"
         app:cnb_backgroundColor="@color/teal_700"

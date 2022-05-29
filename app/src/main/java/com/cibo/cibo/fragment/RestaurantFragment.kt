@@ -71,7 +71,7 @@ class RestaurantFragment : BaseFragment() {
 
     private fun initRecycler() {
         val adapter = CategoriesAdapter()
-        adapter.submitList(this, categories)
+        adapter.submitList(categories)
         bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         bn.recyclerView.adapter = adapter
     }

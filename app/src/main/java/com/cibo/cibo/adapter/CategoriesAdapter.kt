@@ -16,9 +16,8 @@ import com.cibo.cibo.model.Item
 
 class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
-    private var fragment: RestaurantFragment? = null
 
-    inner class VH(private val binding: ItemCategoryBinding, var fragment: RestaurantFragment) :
+    inner class VH(private val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind() {
             val details = dif.currentList[adapterPosition]
@@ -26,7 +25,7 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
                 categoryName.text = details.name
                 recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
-                    adapter = ItemsAdapter(fragment, details.listOfItems)
+                    adapter = ItemsAdapter(context, details.listOfItems)
                 }
             }
         }
@@ -34,8 +33,7 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         return VH(
-            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            fragment!!
+            ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
@@ -43,8 +41,7 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.VH>() {
     override fun onBindViewHolder(holder: VH, position: Int) = holder.bind()
 
 
-    fun submitList(fragment: RestaurantFragment, list: List<Category>) {
-        this.fragment = fragment
+    fun submitList(list: List<Category>) {
         dif.submitList(list)
     }
 
