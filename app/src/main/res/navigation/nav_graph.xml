@@ -11,7 +11,10 @@
         android:label="ScanFragment">
         <action
             android:id="@+id/actionOpenRestaurantFragment"
-            app:destination="@id/restaurantFragment" />
+            app:destination="@id/restaurantFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/scanFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
