@@ -113,14 +113,17 @@
                     <Button
                         android:text="–"
                         android:id="@+id/btn_count_minus"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/ic_triangle"
-                        android:backgroundTint="#A1A1A1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/shape_rectangle_plus_minus"
+                        android:backgroundTint="#F8F8FA"
                         android:rotation="180"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/black" />
 
                     <TextView
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="4dp"
                         android:id="@+id/tv_product_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -134,11 +137,11 @@
                     <Button
                         android:text="+"
                         android:id="@+id/btn_count_plus"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:background="@drawable/ic_triangle"
-                        android:backgroundTint="#FFC107"
-                        android:textColor="@color/white" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/shape_rectangle_plus_minus"
+                        android:backgroundTint="#F8F8FA"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -149,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="15dp"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="#D94442"
                 android:paddingVertical="15dp"
                 android:text="Add to cart" />
 
