@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibo">
         <activity
-            android:name=".ChangeSettingsActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.IntroPageActivity"
             android:exported="false" />
         <activity
