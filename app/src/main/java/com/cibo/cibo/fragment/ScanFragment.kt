@@ -7,27 +7,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
 import com.cibo.cibo.R
-import com.cibo.cibo.activity.MainActivity
 import com.cibo.cibo.databinding.FragmentScanBinding
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.ResultPoint
 import com.google.zxing.client.android.BeepManager
 import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
-import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import pub.devrel.easypermissions.AfterPermissionGranted
 import pub.devrel.easypermissions.EasyPermissions
-import kotlin.math.log
 
 class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
@@ -46,6 +38,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setTransparentStatusBarColor(requireContext(), R.color.black,  R.color.white, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
         _bn = FragmentScanBinding.inflate(inflater, container, false)
         return bn.root
     }
