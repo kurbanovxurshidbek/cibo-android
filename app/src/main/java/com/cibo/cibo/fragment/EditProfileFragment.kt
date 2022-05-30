@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentEditProfileBinding
 
@@ -27,19 +26,22 @@ class EditProfileFragment : BaseFragment() {
         initView()
     }
 
+    override fun onResume() {
+        super.onResume()
+//        changeStatusBar(R.color.black, R.color.teal_700)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
 
     private fun initView() {
-        val btn_back = bn.btnBack
-        val btn_done = bn.btnDone
-        val et_name = bn.etName
-        val et_number = bn.etNumber
-
-
-        btn_back.setOnClickListener {
+        bn.btnBack.setOnClickListener {
             requireActivity().onBackPressed()
         }
 
-        btn_done.setOnClickListener {
+        bn.btnDone.setOnClickListener {
             requireActivity().onBackPressed()
         }
     }

@@ -7,10 +7,13 @@
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.cibo.cibo.fragment.ScanFragment"
-        android:label="ScanFragment" >
+        android:label="ScanFragment">
         <action
             android:id="@+id/actionOpenRestaurantFragment"
-            app:destination="@id/restaurantFragment" />
+            app:destination="@id/restaurantFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/scanFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 
 
@@ -18,12 +21,14 @@
         android:id="@+id/profileFragment"
         android:name="com.cibo.cibo.fragment.ProfileFragment"
         android:label="ProfileFragment" >
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.cibo.cibo.fragment.ProfileFragment"
+        android:label="ProfileFragment">
+
         <action
             android:id="@+id/openEditProfile"
             app:destination="@id/editProfileFragment" />
-        <action
-            android:id="@+id/openHistory"
-            app:destination="@id/historyFragment" />
         <action
             android:id="@+id/openAboutUs"
             app:destination="@id/aboutUsFragment" />
@@ -34,10 +39,7 @@
         android:id="@+id/editProfileFragment"
         android:name="com.cibo.cibo.fragment.EditProfileFragment"
         android:label="EditProfileFragment" />
-    <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.cibo.cibo.fragment.HistoryFragment"
-        android:label="HistoryFragment" />
+
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.cibo.cibo.fragment.AboutUsFragment"
@@ -47,5 +49,17 @@
         android:id="@+id/restaurantFragment"
         android:name="com.cibo.cibo.fragment.RestaurantFragment"
         android:label="RestaurantFragment" />
+
+
+        <action
+            android:id="@+id/action_restaurantFragment_to_productAboutFragment"
+            app:destination="@id/productAboutFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/productAboutFragment"
+        android:name="com.cibo.cibo.fragment.ProductAboutFragment"
+        android:label="ProductAboutFragment" />
+
 
 </navigation>

@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/str_save_your_time"
-        android:textColor="@color/intro_title_color"
+        android:textColor="@color/main_dark"
         android:textSize="26sp"
         android:textStyle="bold" />
 

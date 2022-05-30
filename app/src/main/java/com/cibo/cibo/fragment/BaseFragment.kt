@@ -14,4 +14,5 @@ open class BaseFragment : Fragment(){
         requireActivity().window.getDecorView()
             .setSystemUiVisibility(lightStatus!!)
     }
+
 }

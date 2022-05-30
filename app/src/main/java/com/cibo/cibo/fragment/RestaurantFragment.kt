@@ -2,11 +2,14 @@ package com.cibo.cibo.fragment
 
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.DialogFragment.STYLE_NORMAL
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.bumptech.glide.Glide
@@ -40,6 +43,16 @@ class RestaurantFragment : BaseFragment() {
         initViews()
     }
 
+    override fun onResume() {
+        super.onResume()
+//        changeStatusBar(R.color.black, R.color.white)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
+
     private fun initViews() {
 
         Glide.with(requireContext())
@@ -49,7 +62,46 @@ class RestaurantFragment : BaseFragment() {
         initTabLayout()
         initRecycler()
         initMediator()
+        changeBrandNameSize()
 
+    }
+
+    private fun changeBrandNameSize() {
+        bn.motionLayout.addTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int
+            ) {
+
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                if (currentId == R.id.end)
+                    bn.tvName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
+                else
+                    bn.tvName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25f)
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float
+            ) {
+
+            }
+
+        })
     }
 
     private fun initTabLayout() {
@@ -60,12 +112,7 @@ class RestaurantFragment : BaseFragment() {
 
     private fun initRecycler() {
         val adapter = CategoriesAdapter()
-        adapter.submitList(categories, object : ItemsAdapter.ItemClickListener {
-            override fun itemClick(item: Item) {
-                val productAboutFragment = ProductAboutFragment.newInstance(item)
-                productAboutFragment.show(parentFragmentManager, "ProductAbout")
-            }
-        })
+        adapter.submitList(categories)
         bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         bn.recyclerView.adapter = adapter
     }

@@ -25,7 +25,7 @@
         app:dotsCornerRadius="8dp"
         app:dotsSize="14dp"
         app:dotsSpacing="3dp"
-        app:dotsStrokeColor="@color/status_bar_color"
+        app:dotsStrokeColor="@color/main_yellow"
         app:dotsStrokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
