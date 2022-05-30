@@ -1,10 +1,17 @@
 package com.cibo.cibo.fragment
 
-import android.Manifest
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import com.cibo.cibo.R
-import pub.devrel.easypermissions.AfterPermissionGranted
-import pub.devrel.easypermissions.EasyPermissions
 
-open class BaseFragment : Fragment()
+import android.content.Context
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+
+open class BaseFragment : Fragment(){
+    fun setTransparentStatusBarColor(context: Context, textColor: Int?, statusColor: Int?, lightStatus: Int?){
+        requireActivity().window.getDecorView()
+            .setSystemUiVisibility(ContextCompat.getColor(context, textColor!!)) //  set status text dark
+        requireActivity().window.setStatusBarColor(ContextCompat.getColor(context,
+            statusColor!!)) // set status bar color
+        requireActivity().window.getDecorView()
+            .setSystemUiVisibility(lightStatus!!)
+    }
+}

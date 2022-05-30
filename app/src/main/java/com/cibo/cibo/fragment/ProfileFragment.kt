@@ -25,10 +25,7 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        requireActivity().window.getDecorView()
-            .setSystemUiVisibility(ContextCompat.getColor(requireContext(), R.color.black)) //  set status text dark
-        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
-            R.color.teal_700)) // set status bar color
+        setTransparentStatusBarColor(requireContext(), R.color.black, R.color.teal_700, View.STATUS_BAR_VISIBLE)
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -48,7 +45,7 @@ class ProfileFragment : BaseFragment() {
 
         val ll_history: LinearLayout = bn.llHistory
         ll_history.setOnClickListener {
-            findNavController().navigate(R.id.openHistory)
+            //findNavController().navigate(R.id.openHistory)
         }
 
         val ll_edit_profile: LinearLayout = bn.llChangeSettings

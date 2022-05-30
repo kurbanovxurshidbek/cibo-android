@@ -17,10 +17,7 @@ class EditProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        requireActivity().window.getDecorView()
-            .setSystemUiVisibility(ContextCompat.getColor(requireContext(), R.color.black)) //  set status text dark
-       requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireContext(),
-            R.color.teal_700)) // set status bar color
+        setTransparentStatusBarColor(requireContext(), R.color.black, R.color.teal_700, View.STATUS_BAR_VISIBLE)
         _bn = FragmentEditProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
