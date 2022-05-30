@@ -8,12 +8,12 @@
         android:title="@string/history" />
 
     <item
-        android:id="@+id/scanFragment"
+        android:id="@+id/parentScanFragment"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="@string/scan" />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/parentProfileFragment"
         android:icon="@drawable/ic_person"
         android:title="@string/profile" />
 </menu>

@@ -22,12 +22,16 @@ import com.cibo.cibo.model.Category
 import com.cibo.cibo.model.Item
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import com.google.android.material.tabs.TabLayout
 
 
 class RestaurantFragment : BaseFragment() {
 
     private var _bn: FragmentRestaurantBinding? = null
     private val bn get() = _bn!!
+
+    private var isPaused = false
+    private var lastTab: TabLayout.Tab? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,9 +47,12 @@ class RestaurantFragment : BaseFragment() {
         initViews()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        changeStatusBar(R.color.black, R.color.white)
+    override fun onStart() {
+        super.onStart()
+        if (isPaused) {
+            endMotionProgress()
+            bn.tabLayout.selectTab(lastTab)
+        }
     }
 
     override fun onDestroy() {
@@ -63,7 +70,24 @@ class RestaurantFragment : BaseFragment() {
         initRecycler()
         initMediator()
         changeBrandNameSize()
+        checkTabLayoutClicked()
+    }
 
+    private fun endMotionProgress() {
+        bn.motionLayout.jumpToState(R.id.end)
+    }
+
+    private fun checkTabLayoutClicked() {
+        bn.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                isPaused = tab != bn.tabLayout.getTabAt(0)
+                lastTab = tab
+                endMotionProgress()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
     }
 
     private fun changeBrandNameSize() {
@@ -82,7 +106,8 @@ class RestaurantFragment : BaseFragment() {
                 endId: Int,
                 progress: Float
             ) {
-
+                if (progress == 0.5f)
+                    bn.tvName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
             }
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {

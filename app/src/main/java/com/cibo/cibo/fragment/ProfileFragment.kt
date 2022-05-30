@@ -39,7 +39,6 @@ class ProfileFragment : BaseFragment() {
         initView()
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         _bn = null
@@ -54,21 +53,37 @@ class ProfileFragment : BaseFragment() {
         ll_history.setOnClickListener {
             //findNavController().navigate(R.id.openHistory)
 
+
             bn.llLanguage.setOnClickListener {
                 showChooseLanguage(dialog)
             }
 
             bn.llChangeSettings.setOnClickListener {
-                findNavController().navigate(R.id.openEditProfile)
+                findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
+
+
+                bn.llChangeSettings.setOnClickListener {
+                    findNavController().navigate(R.id.openEditProfile)
+
+                }
+
+
+                bn.llAboutUs.setOnClickListener {
+                    findNavController().navigate(R.id.openAboutUs)
+                }
+
+                bn.llAboutUs.setOnClickListener {
+                    findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
+
+                }
 
             }
 
-            bn.llAboutUs.setOnClickListener {
-                findNavController().navigate(R.id.openAboutUs)
-            }
         }
 
+
     }
+
 
     fun getBottomSheet(): Dialog {
         val dialog = Dialog(requireContext())
@@ -105,4 +120,5 @@ class ProfileFragment : BaseFragment() {
             dialog.dismiss()
         }
     }
+
 }

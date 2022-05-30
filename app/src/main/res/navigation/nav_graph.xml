@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/scanFragment">
+    app:startDestination="@id/parentScanFragment">
 
     <fragment
-        android:id="@+id/scanFragment"
-        android:name="com.cibo.cibo.fragment.ScanFragment"
-        android:label="ScanFragment">
-        <action
-            android:id="@+id/actionOpenRestaurantFragment"
-            app:destination="@id/restaurantFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/scanFragment"
-            app:popUpToInclusive="false" />
-    </fragment>
+        android:id="@+id/parentScanFragment"
+        android:name="com.cibo.cibo.fragment.ParentScanFragment"
+        android:label="fragment_parent_scan"
+        tools:layout="@layout/fragment_parent_scan" />
 
 
     <fragment
@@ -59,7 +54,11 @@
     <dialog
         android:id="@+id/productAboutFragment"
         android:name="com.cibo.cibo.fragment.ProductAboutFragment"
-        android:label="ProductAboutFragment" />
+        android:label="ProductAboutFragment"/>
 
-
+    <fragment
+        android:id="@+id/parentProfileFragment"
+        android:name="com.cibo.cibo.fragment.ParentProfileFragment"
+        android:label="fragment_parent_profile"
+        tools:layout="@layout/fragment_parent_profile" />
 </navigation>
