@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_scan_page"
-    app:startDestination="@id/restaurantFragment">
+    app:startDestination="@id/scanFragment">
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.cibo.cibo.fragment.ScanFragment"

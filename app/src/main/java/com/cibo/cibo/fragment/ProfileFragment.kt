@@ -24,7 +24,7 @@ class ProfileFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         setTransparentStatusBarColor(requireContext(),
             R.color.black,
@@ -49,43 +49,22 @@ class ProfileFragment : BaseFragment() {
 
         val dialog = getBottomSheet()
 
-        val ll_history: LinearLayout = bn.llHistory
-        ll_history.setOnClickListener {
-            //findNavController().navigate(R.id.openHistory)
-
-
-            bn.llLanguage.setOnClickListener {
-                showChooseLanguage(dialog)
-            }
-
-            bn.llChangeSettings.setOnClickListener {
-                findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
-
-
-                bn.llChangeSettings.setOnClickListener {
-                    findNavController().navigate(R.id.openEditProfile)
-
-                }
-
-
-                bn.llAboutUs.setOnClickListener {
-                    findNavController().navigate(R.id.openAboutUs)
-                }
-
-                bn.llAboutUs.setOnClickListener {
-                    findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
-
-                }
-
-            }
-
+        bn.llLanguage.setOnClickListener {
+            showChooseLanguage(dialog)
         }
 
+        bn.llChangeSettings.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
 
+        }
+        bn.llAboutUs.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
+
+        }
     }
 
 
-    fun getBottomSheet(): Dialog {
+    private fun getBottomSheet(): Dialog {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         _dBn = BottomSheetBinding.inflate(dialog.layoutInflater)
@@ -94,7 +73,7 @@ class ProfileFragment : BaseFragment() {
 
     }
 
-    fun showChooseLanguage(dialog: Dialog) {
+    private fun showChooseLanguage(dialog: Dialog) {
 
         dialog.show()
         dialog.window!!.setLayout(
