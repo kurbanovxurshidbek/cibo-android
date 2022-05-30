@@ -12,15 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibo">
-        <activity
-            android:name=".ChangeSettingsActivity"
-            android:exported="false" />
+
         <activity
             android:name=".activity.IntroPageActivity"
             android:exported="false" />
+
         <activity
             android:name=".activity.MainActivity"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

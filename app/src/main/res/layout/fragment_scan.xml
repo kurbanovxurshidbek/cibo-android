@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    app:layoutDescription="@xml/scan_motion">
+    app:layoutDescription="@xml/scan_motion"
+    tools:context=".fragment.ScanFragment">
 
 
     <com.journeyapps.barcodescanner.DecoratedBarcodeView

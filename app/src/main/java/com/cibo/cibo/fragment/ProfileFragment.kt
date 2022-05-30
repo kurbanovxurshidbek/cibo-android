@@ -40,11 +40,6 @@ class ProfileFragment : BaseFragment() {
         initView()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        changeStatusBar(R.color.black, R.color.teal_700)
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         _bn = null
@@ -60,12 +55,12 @@ class ProfileFragment : BaseFragment() {
         }
 
         bn.llChangeSettings.setOnClickListener {
-            findNavController().navigate(R.id.openEditProfile)
+            findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
 
         }
 
         bn.llAboutUs.setOnClickListener {
-            findNavController().navigate(R.id.openAboutUs)
+            findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
         }
     }
 

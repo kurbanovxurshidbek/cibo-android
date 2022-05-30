@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    app:layoutDescription="@xml/menu_motion">
+    app:layoutDescription="@xml/menu_motion"
+    tools:context=".fragment.RestaurantFragment">
 
     <ImageView
         android:id="@+id/detailImageView"

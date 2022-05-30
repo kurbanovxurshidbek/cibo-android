@@ -11,7 +11,7 @@
         app:cnb_textColor="@color/white" />
 
     <item
-        android:id="@+id/scanFragment"
+        android:id="@+id/parentScanFragment"
         android:icon="@drawable/ic_qr_code_scanner"
         android:title="@string/scan"
         app:cnb_backgroundColor="@color/teal_700"
@@ -19,7 +19,7 @@
         app:cnb_textColor="#ffffff" />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/parentProfileFragment"
         android:icon="@drawable/ic_person"
         android:title="@string/profile"
         app:cnb_backgroundColor="@color/teal_700"

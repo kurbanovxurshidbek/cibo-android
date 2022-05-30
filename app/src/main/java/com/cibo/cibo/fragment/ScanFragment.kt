@@ -65,7 +65,7 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
                     if (result.text == "cibo") {
                         bn.QRScannerView.pause()
-                        findNavController().navigate(R.id.actionOpenRestaurantFragment)
+                        findNavController().navigate(R.id.action_scanFragment_to_restaurantFragment)
                     } else {
                         Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
                             .show()
