@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/bg_et_change_settings.xml" value="0.157" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/thumb.xml" value="0.1835" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/track.xml" value="0.1835" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.158" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/blue_rectengle.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/button_rounded.xml" value="0.1595" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/bottom_sheet.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_aboutus.xml" value="0.253125" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_cart.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_change_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_history.xml" value="0.2076923076923077" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />

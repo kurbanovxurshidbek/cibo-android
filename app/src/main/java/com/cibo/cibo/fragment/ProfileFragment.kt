@@ -8,14 +8,10 @@ import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.BottomSheetBinding
 import com.cibo.cibo.databinding.FragmentProfileBinding
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class ProfileFragment : BaseFragment() {
 
@@ -28,9 +24,12 @@ class ProfileFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-
+        setTransparentStatusBarColor(requireContext(),
+            R.color.black,
+            R.color.teal_700,
+            View.STATUS_BAR_VISIBLE)
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -58,9 +57,9 @@ class ProfileFragment : BaseFragment() {
             findNavController().navigate(R.id.action_profileFragment_to_editProfileFragment)
 
         }
-
         bn.llAboutUs.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
+
         }
     }
 
@@ -71,6 +70,7 @@ class ProfileFragment : BaseFragment() {
         _dBn = BottomSheetBinding.inflate(dialog.layoutInflater)
         dialog.setContentView(dBn.root)
         return dialog
+
     }
 
     private fun showChooseLanguage(dialog: Dialog) {

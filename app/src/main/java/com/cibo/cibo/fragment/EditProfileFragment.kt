@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentEditProfileBinding
 
@@ -16,7 +15,8 @@ class EditProfileFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
+        setTransparentStatusBarColor(requireContext(), R.color.black, R.color.teal_700, View.STATUS_BAR_VISIBLE)
         _bn = FragmentEditProfileBinding.inflate(inflater, container, false)
         return bn.root
     }

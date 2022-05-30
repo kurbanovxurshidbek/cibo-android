@@ -55,10 +55,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
-    // Animation Bottom Nav Library
-    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
-
     // TabSync for category
     implementation 'io.github.ahmad-hamwi:tabsync:1.0.1'
 

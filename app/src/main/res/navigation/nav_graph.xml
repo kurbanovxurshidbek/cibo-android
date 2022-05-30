@@ -11,10 +11,10 @@
         android:label="fragment_parent_scan"
         tools:layout="@layout/fragment_parent_scan" />
 
+
     <fragment
         android:id="@+id/parentProfileFragment"
         android:name="com.cibo.cibo.fragment.ParentProfileFragment"
         android:label="fragment_parent_profile"
         tools:layout="@layout/fragment_parent_profile" />
-
 </navigation>
