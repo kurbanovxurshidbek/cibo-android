@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_restaurantFragment_to_productAboutFragment"
             app:destination="@id/productAboutFragment" />
+        <action
+            android:id="@+id/action_restaurantFragment_to_cardFragment"
+            app:destination="@id/cardFragment" />
     </fragment>
 
     <dialog
@@ -31,5 +34,10 @@
         android:name="com.cibo.cibo.fragment.ProductAboutFragment"
         android:label="product_about_fragment"
         tools:layout="@layout/product_about_fragment" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.cibo.cibo.fragment.CardFragment"
+        android:label="fragment_card"
+        tools:layout="@layout/fragment_card" />
 
 </navigation>
