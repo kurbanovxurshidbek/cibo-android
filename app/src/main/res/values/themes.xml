@@ -33,4 +33,26 @@
         <item name="cornerSizeTopRight">20dp</item>
     </style>
 
+
+    <style name="verifyEditStyle">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:autofillHints" tools:targetApi="o">password</item>
+        <item name="android:background">@drawable/edtextbackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/main_red</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="cursore">
+        <item name="colorPrimary" >
+            @color/main_dark
+        </item>
+    </style>
+
 </resources>

@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cibo">
 
-        <activity
-            android:name=".activity.IntroPageActivity"
-            android:exported="false" />
+        <activity android:name=".activity.IntroPageActivity" />
 
         <activity
             android:name=".activity.MainActivity"
@@ -30,6 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.LoginActivity" />
+
     </application>
 
 </manifest>
