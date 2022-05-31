@@ -2,18 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_bottom_sheet"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_height="4dp"
+            android:backgroundTint="@color/main_yellow"/>
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="@string/str_choose_language"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -26,11 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/linear_layout_rectangle"
             android:gravity="center_vertical"
-            android:paddingStart="20dp"
             android:paddingTop="10dp"
-            android:paddingEnd="20dp"
             android:paddingBottom="10dp">
 
             <TextView
@@ -43,6 +54,7 @@
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
+
         </LinearLayout>
 
         <LinearLayout
@@ -50,11 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/linear_layout_rectangle"
             android:gravity="center_vertical"
-            android:paddingStart="20dp"
             android:paddingTop="10dp"
-            android:paddingEnd="20dp"
             android:paddingBottom="10dp">
 
             <TextView
@@ -73,11 +82,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/linear_layout_rectangle"
             android:gravity="center_vertical"
-            android:paddingStart="20dp"
             android:paddingTop="10dp"
-            android:paddingEnd="20dp"
             android:paddingBottom="10dp">
 
             <TextView

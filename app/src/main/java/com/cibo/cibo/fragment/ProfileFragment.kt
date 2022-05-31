@@ -28,8 +28,8 @@ class ProfileFragment : BaseFragment() {
     ): View {
         setTransparentStatusBarColor(requireContext(),
             R.color.black,
-            R.color.teal_700,
-            View.STATUS_BAR_VISIBLE)
+            R.color.main_yellow,
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }

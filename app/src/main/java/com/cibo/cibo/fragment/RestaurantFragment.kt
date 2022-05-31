@@ -38,6 +38,7 @@ class RestaurantFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setTransparentStatusBarColor(requireContext(), R.color.black,  R.color.white, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
         _bn = FragmentRestaurantBinding.inflate(inflater, container, false)
         return bn.root
     }

@@ -15,6 +15,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="ColorCursor">
+        <item name="colorPrimary">@color/main_dark</item>
+    </style>
+
     <style name="rounded_border">
         <item name="cornerSize">15dp</item>
     </style>
