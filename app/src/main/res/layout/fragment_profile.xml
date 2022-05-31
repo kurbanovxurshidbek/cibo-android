@@ -65,7 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+998 94 685 19 19"
-                        android:textColor="@color/main_silver"
+                        android:textColor="@color/main_silver_dark"
                         android:textSize="16sp"
                         android:textStyle="normal" />
 
@@ -91,27 +91,28 @@
                     android:paddingBottom="10dp">
 
                     <LinearLayout
-                        android:gravity="center"
-                        android:background="@drawable/linear_layout_rectangle"
                         android:layout_width="45dp"
-                        android:layout_height="45dp">
+                        android:layout_height="45dp"
+                        android:background="@drawable/linear_layout_rectangle"
+                        android:backgroundTint="@color/main_silver_light"
+                        android:gravity="center">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_notification" />
+                            android:src="@drawable/ic_notification"
+                            app:tint="@color/main_yellow" />
 
                     </LinearLayout>
-
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginStart="15dp">
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -131,17 +132,18 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_arrow" />
+                                android:src="@drawable/ic_arrow"
+                                app:tint="@color/main_silver_dark" />
 
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
-               <!-- <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.01dp"
-                    android:layout_gravity="center"
-                    android:background="#DCDBDB" />-->
+                <!-- <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="0.01dp"
+                     android:layout_gravity="center"
+                     android:background="#DCDBDB" />-->
 
 
                 <LinearLayout
@@ -154,16 +156,18 @@
                     android:paddingBottom="10dp">
 
                     <LinearLayout
-                        android:gravity="center"
-                        android:background="@drawable/linear_layout_rectangle"
                         android:layout_width="45dp"
-                        android:layout_height="45dp">
+                        android:layout_height="45dp"
+                        android:background="@drawable/linear_layout_rectangle"
+                        android:backgroundTint="@color/main_silver_light"
+                        android:gravity="center">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_language" />
+                            android:src="@drawable/ic_language"
+                            app:tint="@color/main_yellow" />
 
                     </LinearLayout>
 
@@ -171,8 +175,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:orientation="vertical"
-                        android:layout_marginStart="15dp">
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -192,17 +196,18 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_arrow" />
+                                android:src="@drawable/ic_arrow"
+                                app:tint="@color/main_silver_dark" />
 
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
-              <!--  <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.01dp"
-                    android:layout_gravity="center"
-                    android:background="#DCDBDB" />-->
+                <!--  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="0.01dp"
+                      android:layout_gravity="center"
+                      android:background="#DCDBDB" />-->
 
                 <LinearLayout
                     android:id="@+id/ll_change_settings"
@@ -214,24 +219,26 @@
                     android:paddingBottom="10dp">
 
                     <LinearLayout
-                        android:gravity="center"
-                        android:background="@drawable/linear_layout_rectangle"
                         android:layout_width="45dp"
-                        android:layout_height="45dp">
+                        android:layout_height="45dp"
+                        android:background="@drawable/linear_layout_rectangle"
+                        android:backgroundTint="@color/main_silver_light"
+                        android:gravity="center">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_editprofile" />
+                            android:src="@drawable/ic_editprofile"
+                            app:tint="@color/main_yellow" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="15dp">
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
 
 
                         <LinearLayout
@@ -252,17 +259,18 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_arrow" />
+                                android:src="@drawable/ic_arrow"
+                                app:tint="@color/main_silver_dark" />
 
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
 
-               <!-- <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.01dp"
-                    android:layout_gravity="center"
-                    android:background="#DCDBDB" />-->
+                <!-- <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="0.01dp"
+                     android:layout_gravity="center"
+                     android:background="#DCDBDB" />-->
 
                 <LinearLayout
                     android:id="@+id/ll_about_us"
@@ -274,16 +282,18 @@
                     android:paddingBottom="10dp">
 
                     <LinearLayout
-                        android:gravity="center"
-                        android:background="@drawable/linear_layout_rectangle"
                         android:layout_width="45dp"
-                        android:layout_height="45dp">
+                        android:layout_height="45dp"
+                        android:background="@drawable/linear_layout_rectangle"
+                        android:backgroundTint="@color/main_silver_light"
+                        android:gravity="center">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_aboutus" />
+                            android:src="@drawable/ic_aboutus"
+                            app:tint="@color/main_yellow" />
 
                     </LinearLayout>
 
@@ -291,8 +301,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="15dp">
+                        android:layout_marginStart="15dp"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -312,7 +322,8 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_arrow" />
+                                android:src="@drawable/ic_arrow"
+                                app:tint="@color/main_silver_dark" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -325,7 +336,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/linear_rounded"
                 android:gravity="center_vertical"
                 android:padding="10dp">
@@ -335,14 +347,14 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_logout"
-                    app:tint="@color/black" />
+                    app:tint="@color/main_red" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginStart="15dp">
+                    android:layout_marginStart="15dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -354,7 +366,7 @@
                             android:layout_weight="1"
                             android:singleLine="true"
                             android:text="@string/str_log_out"
-                            android:textColor="@color/black"
+                            android:textColor="@color/main_red"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
