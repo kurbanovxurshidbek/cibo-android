@@ -1,5 +1,6 @@
 package com.cibo.cibo.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -14,7 +15,10 @@ import com.cibo.cibo.R
 import com.cibo.cibo.adapter.CategoriesAdapter
 import com.cibo.cibo.databinding.FragmentRestaurantBinding
 import com.cibo.cibo.helper.SpacesItemDecoration
+import com.cibo.cibo.model.Card
+import com.cibo.cibo.model.Food
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
 
 
 class RestaurantFragment : BaseFragment() {
@@ -25,6 +29,8 @@ class RestaurantFragment : BaseFragment() {
     private var isCheckedTab = false
     private var lastTab: TabLayout.Tab? = null
     private var productCount = 0
+    private var productMap = HashMap<Food, Int>()
+    private var productPrice = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,13 +48,14 @@ class RestaurantFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+
         if (isCheckedTab) {
             bn.motionLayout.jumpToState(R.id.end)
             bn.tabLayout.selectTab(lastTab)
         }
 
         if (productCount != 0)
-            openCartButton(0)
+            openCartButton(0, null)
     }
 
     override fun onDestroy() {
@@ -63,7 +70,10 @@ class RestaurantFragment : BaseFragment() {
             .into(bn.detailImageView)
 
         bn.cardView.setOnClickListener {
-            findNavController().navigate(R.id.action_restaurantFragment_to_cardFragment)
+            val args = Bundle()
+            val data: String = Gson().toJson(getCardList(productMap))
+            args.putString("productList", data)
+            findNavController().navigate(R.id.action_restaurantFragment_to_cardFragment, args)
         }
 
         initTabLayout()
@@ -150,10 +160,30 @@ class RestaurantFragment : BaseFragment() {
         ).attach()
     }
 
-    fun openCartButton(count: Int) {
+    @SuppressLint("SetTextI18n")
+    fun openCartButton(count: Int, food: Food?) {
         productCount += count
         bn.parentMotionLayout.transitionToEnd()
         bn.productCount.text = productCount.toString()
+        food?.let { it ->
+
+            var newCount = productMap.getOrDefault(it, 0)
+            newCount++
+            productMap[it] = newCount
+
+            it.price?.let {
+                productPrice += it
+            }
+        }
+        bn.cartPrice.text = productPrice.toInt().toString() + " so'm"
+    }
+
+    private fun getCardList(map: HashMap<Food, Int>): ArrayList<Card> {
+        val list = ArrayList<Card>()
+        map.forEach { (food, count) ->
+            list.add(Card(food, count))
+        }
+        return list
     }
 
 }

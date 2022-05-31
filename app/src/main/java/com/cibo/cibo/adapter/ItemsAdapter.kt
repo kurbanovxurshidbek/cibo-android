@@ -45,7 +45,7 @@ class ItemsAdapter(private val context: RestaurantFragment, private val foods: L
             }
             view.findViewById<TextView>(R.id.tv_food_name).text = food.content
             view.findViewById<Button>(R.id.btn_count_minus).setOnClickListener {
-                context.openCartButton(1)
+                context.openCartButton(1, food)
             }
             Glide.with(context).load(food.img).into(view.findViewById(R.id.iv_food_photo))
         }
