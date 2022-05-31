@@ -26,10 +26,12 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        setTransparentStatusBarColor(requireContext(),
+       /* setTransparentStatusBarColor(requireContext(),
             R.color.black,
             R.color.main_yellow,
             View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+            R.color.teal_700,
+            View.STATUS_BAR_VISIBLE)*/
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
