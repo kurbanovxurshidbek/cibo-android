@@ -16,8 +16,7 @@
         <activity android:name=".activity.IntroPageActivity" />
 
         <activity
-            android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:name=".activity.MainActivity" />
 
         <activity
             android:name=".activity.SplashActivity"

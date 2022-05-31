@@ -12,7 +12,8 @@
     <!--my colors-->
     <color name="main_red">#D94442</color>
     <color name="main_dark">#302C20</color>
-    <color name="main_silver">#888888</color>
+    <color name="main_silver_light">#F6F6FA</color>
+    <color name="main_silver_dark">#888888</color>
     <color name="main_yellow">#FBD133</color>
     <color name="green_default">#ff02c65c</color>
     <color name="light_900">#EBEBEB</color>

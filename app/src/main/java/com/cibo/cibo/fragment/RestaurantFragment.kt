@@ -1,28 +1,24 @@
 package com.cibo.cibo.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.fragment.app.DialogFragment.STYLE_NORMAL
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
-import com.cibo.cibo.activity.MainActivity
 import com.cibo.cibo.adapter.CategoriesAdapter
-import com.cibo.cibo.adapter.ItemsAdapter
 import com.cibo.cibo.databinding.FragmentRestaurantBinding
-import com.cibo.cibo.model.Category
-import com.cibo.cibo.model.Item
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import com.cibo.cibo.helper.SpacesItemDecoration
+import com.cibo.cibo.model.Card
+import com.cibo.cibo.model.Food
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
 
 
 class RestaurantFragment : BaseFragment() {
@@ -30,14 +26,18 @@ class RestaurantFragment : BaseFragment() {
     private var _bn: FragmentRestaurantBinding? = null
     private val bn get() = _bn!!
 
-    private var isPaused = false
+    private var isCheckedTab = false
     private var lastTab: TabLayout.Tab? = null
+    private var productCount = 0
+    private var productMap = HashMap<Food, Int>()
+    private var productPrice = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setTransparentStatusBarColor(requireContext(), R.color.black,  R.color.white, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
         _bn = FragmentRestaurantBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -49,10 +49,14 @@ class RestaurantFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-        if (isPaused) {
-            endMotionProgress()
+
+        if (isCheckedTab) {
+            bn.motionLayout.jumpToState(R.id.end)
             bn.tabLayout.selectTab(lastTab)
         }
+
+        if (productCount != 0)
+            openCartButton(0, null)
     }
 
     override fun onDestroy() {
@@ -66,6 +70,13 @@ class RestaurantFragment : BaseFragment() {
             .load("https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167")
             .into(bn.detailImageView)
 
+        bn.cardView.setOnClickListener {
+            val args = Bundle()
+            val data: String = Gson().toJson(getCardList(productMap))
+            args.putString("productList", data)
+            findNavController().navigate(R.id.action_restaurantFragment_to_cardFragment, args)
+        }
+
         initTabLayout()
         initRecycler()
         initMediator()
@@ -73,16 +84,12 @@ class RestaurantFragment : BaseFragment() {
         checkTabLayoutClicked()
     }
 
-    private fun endMotionProgress() {
-        bn.motionLayout.jumpToState(R.id.end)
-    }
-
     private fun checkTabLayoutClicked() {
         bn.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                isPaused = tab != bn.tabLayout.getTabAt(0)
+                isCheckedTab = tab != bn.tabLayout.getTabAt(0)
                 lastTab = tab
-                endMotionProgress()
+                bn.motionLayout.transitionToEnd()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -136,10 +143,13 @@ class RestaurantFragment : BaseFragment() {
     }
 
     private fun initRecycler() {
-        val adapter = CategoriesAdapter()
-        adapter.submitList(categories)
-        bn.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        bn.recyclerView.adapter = adapter
+        val newAdapter = CategoriesAdapter(this)
+        newAdapter.submitList(categories)
+        bn.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(SpacesItemDecoration(320))
+            adapter = newAdapter
+        }
     }
 
 
@@ -151,106 +161,30 @@ class RestaurantFragment : BaseFragment() {
         ).attach()
     }
 
-    private val categories = mutableListOf(
-        Category(
-            "Burgers",
-            Item(
-                "Big Burger",
-                "https://images.unsplash.com/photo-1552526881-721ce8509abb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465"
-            ),
-            Item(
-                "Medium Burger",
-                "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171"
-            ),
-            Item(
-                "Small Burger",
-                "https://images.unsplash.com/photo-1626082892105-1650809e18aa?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
-            ),
-        ),
-        Category(
-            "Pizza",
-            Item(
-                "Pizza Small",
-                "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388"
-            ),
-            Item(
-                "Pizza Medium",
-                "https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
-            ),
-            Item(
-                "Pizza Max",
-                "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025"
-            ),
-        ),
-        Category(
-            "Drinks",
-            Item(
-                "Cola",
-                "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"
-            ),
-            Item(
-                "Pepsi",
-                "https://images.unsplash.com/photo-1629186235045-80d4147d90dc?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464"
-            ),
-            Item(
-                "Fanta",
-                "https://images.unsplash.com/photo-1598419161288-9f2f26c85590?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200"
-            ),
-            Item(
-                "Sprite",
-                "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"
-            ),
-        ),
-        Category(
-            "Burgers",
-            Item(
-                "Big Burger",
-                "https://images.unsplash.com/photo-1552526881-721ce8509abb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465"
-            ),
-            Item(
-                "Medium Burger",
-                "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171"
-            ),
-            Item(
-                "Small Burger",
-                "https://images.unsplash.com/photo-1626082892105-1650809e18aa?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
-            ),
-        ),
-        Category(
-            "Pizza",
-            Item(
-                "Pizza Small",
-                "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388"
-            ),
-            Item(
-                "Pizza Medium",
-                "https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
-            ),
-            Item(
-                "Pizza Max",
-                "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025"
-            ),
-        ),
-        Category(
-            "Drinks",
-            Item(
-                "Cola",
-                "https://images.unsplash.com/photo-1624552184280-9e9631bbeee9?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"
-            ),
-            Item(
-                "Pepsi",
-                "https://images.unsplash.com/photo-1629186235045-80d4147d90dc?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464"
-            ),
-            Item(
-                "Fanta",
-                "https://images.unsplash.com/photo-1598419161288-9f2f26c85590?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200"
-            ),
-            Item(
-                "Sprite",
-                "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387"
-            ),
-        )
-    )
+    @SuppressLint("SetTextI18n")
+    fun openCartButton(count: Int, food: Food?) {
+        productCount += count
+        bn.parentMotionLayout.transitionToEnd()
+        bn.productCount.text = productCount.toString()
+        food?.let { it ->
 
+            var newCount = productMap.getOrDefault(it, 0)
+            newCount++
+            productMap[it] = newCount
+
+            it.price?.let {
+                productPrice += it
+            }
+        }
+        bn.cartPrice.text = productPrice.toInt().toString() + " so'm"
+    }
+
+    private fun getCardList(map: HashMap<Food, Int>): ArrayList<Card> {
+        val list = ArrayList<Card>()
+        map.forEach { (food, count) ->
+            list.add(Card(food, count))
+        }
+        return list
+    }
 
 }

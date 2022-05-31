@@ -95,19 +95,11 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp">
 
-                <TextView
-                    android:id="@+id/tv_product_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical|end"
+                    android:gravity="center_vertical|start"
                     android:orientation="horizontal">
 
                     <TextView
@@ -115,7 +107,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/shape_rectangle_plus_minus"
-                        android:backgroundTint="#F8F8FA"
+                        android:backgroundTint="#F5F5FA"
                         android:gravity="center"
                         android:rotation="180"
                         android:text="–"
@@ -141,13 +133,22 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/shape_rectangle_plus_minus"
-                        android:backgroundTint="#F8F8FA"
+                        android:backgroundTint="#F5F5FA"
                         android:gravity="center"
                         android:text="+"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_product_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="90 000 so'm"/>
 
             </LinearLayout>
 
@@ -158,6 +159,7 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#D94442"
                 android:paddingVertical="15dp"
+                app:cornerRadius="10dp"
                 android:text="Add to cart" />
 
         </LinearLayout>

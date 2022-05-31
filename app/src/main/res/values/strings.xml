@@ -27,8 +27,11 @@
     <string name="str_notification">Notification</string>
     <string name="str_edit_profile">Edit profile</string>
     <string name="str_about_us">About Us</string>
-    <string name="str_name_required">Name (required)</string>
-    <string name="str_number">Phone number (required)</string>
+    <string name="str_name">New name</string>
+    <string name="str_number">New phone number</string>
     <string name="str_cart">Cart</string>
     <string name="resend">Resend</string>
+    <string name="str_surname">Surname</string>
+    <string name="str_birthday">Birthday</string>
+    <string name="str_gender">Gender</string>
 </resources>

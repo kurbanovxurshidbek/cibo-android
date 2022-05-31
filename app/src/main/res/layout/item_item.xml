@@ -9,12 +9,13 @@
     android:layout_marginEnd="10dp"
     app:cardCornerRadius="15dp"
     app:cardElevation="0dp">
+
     <LinearLayout
-        android:background="#F8F8FA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5FA"
         android:paddingTop="0dp"
-        android:paddingBottom="15dp">
+        android:paddingBottom="10dp">
 
         <LinearLayout
             android:id="@+id/item_food_feed"
@@ -23,13 +24,13 @@
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:background="@drawable/shape_rectangle_plus_minus"
-                android:paddingHorizontal="5dp"
-                android:paddingVertical="5dp"
                 android:id="@+id/iv_food_photo"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:adjustViewBounds="true"
+                android:background="@drawable/shape_rectangle_plus_minus"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
                 app:shapeAppearanceOverlay="@style/rounded_border" />
@@ -42,9 +43,9 @@
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:gravity="top"
                     android:orientation="vertical"
                     android:paddingHorizontal="7.5dp">
@@ -62,8 +63,9 @@
                         android:paddingEnd="10dp"
                         android:text="Xot Dog"
                         android:textColor="#2F2B21"
-                        android:textSize="18sp"
-                        android:textStyle="normal" />
+                        android:textSize="17sp"
+                        android:textStyle="normal"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:id="@+id/tv_food_price"
@@ -72,16 +74,16 @@
                         android:layout_marginTop="5dp"
                         android:src="@drawable/ic_launcher_background"
                         android:text="28 000 so'm"
-                        android:textColor="#434036"
-                        android:textSize="14dp" />
+                        android:textColor="#808080"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
 
                 <Button
-                    android:layout_marginEnd="15dp"
                     android:id="@+id/btn_count_minus"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/shape_rectangle_plus_minus"
                     android:backgroundTint="#D94442"
                     android:rotation="180"

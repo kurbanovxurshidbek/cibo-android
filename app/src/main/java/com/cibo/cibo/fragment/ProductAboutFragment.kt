@@ -2,15 +2,13 @@ package com.cibo.cibo.fragment
 
 
 import android.annotation.SuppressLint
-import android.icu.number.IntegerWidth
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.cibo.cibo.databinding.ProductAboutFragmentBinding
-import com.cibo.cibo.model.Item
+import com.cibo.cibo.model.Food
 import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment
 import com.cibo.cibo.R
 
@@ -18,10 +16,10 @@ import com.cibo.cibo.R
 class ProductAboutFragment : SuperBottomSheetFragment() {
 
     companion object {
-        fun newInstance(item: Item): ProductAboutFragment {
+        fun newInstance(food: Food): ProductAboutFragment {
             val newFragment = ProductAboutFragment()
             val args = Bundle()
-            args.putSerializable("productAbout", item)
+            args.putSerializable("productAbout", food)
             newFragment.arguments = args
             return newFragment
         }
@@ -57,13 +55,13 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
     }
 
     private fun initViews() {
-        val item: Item = arguments?.getSerializable("productAbout") as Item
+        val food: Food = arguments?.getSerializable("productAbout") as Food
         bn.apply {
-            tvProductAbout.text = item.img + "\n\n\n" + item.img
-            tvProductName.text = item.content
+            tvProductAbout.text = food.img + "\n\n\n" + food.img
+            tvProductName.text = food.content
             tvProductPrice.text = "90 000 so`m"
             tvProductCount.text = "1"
-            Glide.with(requireContext()).load(item.img).into(bn.ivFoodDetail)
+            Glide.with(requireContext()).load(food.img).into(bn.ivFoodDetail)
 
             btnCountPlus.setOnClickListener {
                 tvProductCount.text =
