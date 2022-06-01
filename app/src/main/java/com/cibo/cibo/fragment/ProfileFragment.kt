@@ -63,6 +63,10 @@ class ProfileFragment : BaseFragment() {
             findNavController().navigate(R.id.action_profileFragment_to_aboutUsFragment)
 
         }
+
+        bn.llNotification.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_notificationFragment)
+        }
     }
 
 
