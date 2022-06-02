@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".fragment.ConfirmationFragment">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="96dp"
+        android:ellipsize="end"
+        android:text="Verify phoe"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvFourDigit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="40dp"
+        android:ellipsize="end"
+        android:lineSpacingExtra="8dp"
+        android:textColor="#ABAAB1"
+        android:textSize="16sp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/ed1"
+            style="@style/verifyEditStyle" />
+
+
+        <EditText
+            android:id="@+id/ed2"
+            style="@style/verifyEditStyle"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@id/ed1" />
+
+        <EditText
+            android:id="@+id/ed3"
+            style="@style/verifyEditStyle"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@id/ed2" />
+
+        <EditText
+            android:id="@+id/ed4"
+            style="@style/verifyEditStyle"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@id/ed3" />
+
+    </RelativeLayout>
+    
+
+    <TextView
+        android:id="@+id/tv_resend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@color/main_red"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

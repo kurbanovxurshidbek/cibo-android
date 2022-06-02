@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_bottom_sheet"
     android:orientation="vertical">
 
@@ -47,6 +48,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/uz"
                 android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
 
@@ -77,6 +79,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/ru"
                 android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/circle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
 
@@ -104,6 +107,7 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_gravity="center"
                 android:src="@drawable/eng"
+                app:shapeAppearanceOverlay="@style/circle"
                 android:scaleType="centerCrop"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>

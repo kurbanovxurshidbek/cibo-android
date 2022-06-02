@@ -4,9 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/bg_et_change_settings.xml" value="0.157" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/thumb.xml" value="0.1745" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable-v24/track.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.158" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_btn_intro_page.xml" value="0.155" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_btn_intro_page_disabled.xml" value="0.155" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/bg_btn_intro_page_enabled.xml" value="0.155" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/blue_rectengle.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/button_rounded.xml" value="0.1595" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/code_background.xml" value="0.1745" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/edtextbackground.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_aboutUs.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_arrow.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_arrow_back.xml" value="0.1745" />
@@ -14,11 +21,13 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_done.xml" value="0.157" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_editProfile.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_editprofile.xml" value="0.1745" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_error_message.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_language.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_logout.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_minus.xml" value="0.124" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_notification.xml" value="0.1745" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_plus.xml" value="0.124" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/item_circle.xml" value="0.174" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/linear_layout_rectangle.xml" value="0.1475" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/linear_rounded.xml" value="0.1605" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/white_rectangle.xml" value="0.1595" />
@@ -35,6 +44,7 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_notification.xml" value="0.264" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_trash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/product_about_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/settings_page.xml" value="0.25416666666666665" />
@@ -66,6 +76,20 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_trash.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/product_about_fragment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/menu/nav_item.xml" value="0.2734375" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/drawable/code_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/drawable/edtextbackground.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/drawable/ic_error_message.xml" value="0.2703125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_aboutus.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_card.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_confirmation.xml" value="0.2" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_parent_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_parent_scan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/cibo/cibo-android/app/src/main/res/layout/fragment_registration.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/ic_shopping_basket.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable/ic_triangle.xml" value="0.1455" />
         <entry key="app/src/main/res/drawable/shape_rectangle_plus_minus.xml" value="1.0535505371093752" />
