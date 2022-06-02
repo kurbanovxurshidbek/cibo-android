@@ -1,5 +1,6 @@
 package com.cibo.cibo.adapter
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,46 +9,67 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
+import com.cibo.cibo.databinding.ItemItemBinding
 import com.cibo.cibo.fragment.RestaurantFragment
+import com.cibo.cibo.model.Category
 import com.cibo.cibo.model.Food
 
-class ItemsAdapter(private val context: RestaurantFragment, private val foods: List<Food>) :
+class ItemsAdapter(private val context: RestaurantFragment) :
     RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        return ItemViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_item, parent, false)
-        )
-    }
+    private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(foods[position])
-    }
+    fun submitList(list: List<Food>) = dif.submitList(list)
 
-    override fun getItemCount(): Int {
-        return foods.size
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
+        ItemViewHolder(ItemItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-    inner class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(food: Food) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) = holder.bind()
+
+    override fun getItemCount(): Int = dif.currentList.size
+
+    inner class ItemViewHolder(private val binding: ItemItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            val food = dif.currentList[adapterPosition]
             val args = Bundle()
             args.putSerializable("productAbout", food)
-            view.findViewById<CardView>(R.id.card_parent).setOnClickListener {
-                val navController = it.findNavController()
-                if (navController.currentDestination?.id != R.id.productAboutFragment)
-                    navController.navigate(
-                        R.id.action_restaurantFragment_to_productAboutFragment,
-                        args
-                    )
+
+            binding.apply {
+                tvFoodName.text = food.content
+                Glide.with(context).load(food.img).into(ivFoodPhoto)
+                tvFoodPrice.text = food.price?.toInt().toString().plus(" so'm")
+
+                btnCountMinus.setOnClickListener {
+                    context.openCartButton(1, food)
+                }
+
+                cardParent.setOnClickListener {
+                    val navController = it.findNavController()
+                    if (navController.currentDestination?.id != R.id.productAboutFragment)
+                        navController.navigate(
+                            resId = R.id.action_restaurantFragment_to_productAboutFragment,
+                            args = args
+                        )
+                }
+
             }
-            view.findViewById<TextView>(R.id.tv_food_name).text = food.content
-            view.findViewById<Button>(R.id.btn_count_minus).setOnClickListener {
-                context.openCartButton(1, food)
-            }
-            Glide.with(context).load(food.img).into(view.findViewById(R.id.iv_food_photo))
+        }
+    }
+
+    companion object {
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<Food>() {
+            override fun areItemsTheSame(oldItem: Food, newItem: Food): Boolean =
+                oldItem.content == newItem.content
+
+            @SuppressLint("DiffUtilEquals")
+            override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean =
+                oldItem == newItem
         }
     }
 

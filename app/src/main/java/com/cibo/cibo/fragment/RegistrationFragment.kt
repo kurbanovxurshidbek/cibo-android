@@ -41,9 +41,11 @@ class RegistrationFragment : BaseFragment() {
         bn.signUpBtn.apply {
             setOnClickListener {
                 text = "Loading..."
-                Intent(requireActivity(), MainActivity::class.java).also {
+               /* Intent(requireActivity(), MainActivity::class.java).also {
                     startActivity(it)
-                }
+                }*/
+
+                requireActivity().finish()
             }
         }
     }
