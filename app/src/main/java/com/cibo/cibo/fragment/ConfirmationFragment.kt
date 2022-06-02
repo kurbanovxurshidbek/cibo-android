@@ -44,22 +44,23 @@ class ConfirmationFragment : BaseFragment() {
         resendTextClickManager()
     }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        _bn = null
+    }
 
 
     private fun resendTextClickManager() {
         bn.apply {
             tvResend.setOnClickListener {
                 if (tvResend.text == getString(R.string.resend)) {
-                    toaster("Resend")
+//                    toaster("Resend")
 //                    callRequestCodeToServer()
                     perSecond()
                 }
             }
         }
     }
-
-
 
 
     private fun inputSmsCodeManager() {
@@ -164,6 +165,7 @@ class ConfirmationFragment : BaseFragment() {
     private fun checkRequestServerCode(code: String) {
         Toast.makeText(context, "Server Send: $code", Toast.LENGTH_SHORT).show()
     }
+
     private fun checkAllEditToSendCodeServer(): Boolean {
         bn.apply {
             if (ed1.text.isNotEmpty() && ed2.text.isNotEmpty() && ed3.text.isNotEmpty() && ed4.text.isNotEmpty()) {
@@ -172,7 +174,6 @@ class ConfirmationFragment : BaseFragment() {
         }
         return false
     }
-
 
 
     private fun allEditTextClickableFalse() {
@@ -239,5 +240,4 @@ class ConfirmationFragment : BaseFragment() {
     }
 
 
-
-  }
+}

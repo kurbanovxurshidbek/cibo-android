@@ -20,7 +20,9 @@ class CategoriesAdapter(private val fragment: RestaurantFragment) : RecyclerView
                 categoryName.text = details.name
                 recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
-                    adapter = ItemsAdapter(fragment, details.listOfFoods)
+                    val newAdapter = ItemsAdapter(fragment)
+                    newAdapter.submitList(details.listOfFoods)
+                    adapter = newAdapter
                 }
             }
         }

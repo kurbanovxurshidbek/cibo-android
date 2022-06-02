@@ -15,7 +15,7 @@ import com.cibo.cibo.R
 
 class ProductAboutFragment : SuperBottomSheetFragment() {
 
-    companion object {
+   /* companion object {
         fun newInstance(food: Food): ProductAboutFragment {
             val newFragment = ProductAboutFragment()
             val args = Bundle()
@@ -23,10 +23,14 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
             newFragment.arguments = args
             return newFragment
         }
-    }
+    }*/
 
     private var _bn: ProductAboutFragmentBinding? = null
     private val bn get() = _bn!!
+
+    private var productCount = 1
+    private var productMap = HashMap<Food, Int>()
+    private var productPrice = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,21 +61,22 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
     private fun initViews() {
         val food: Food = arguments?.getSerializable("productAbout") as Food
         bn.apply {
-            tvProductAbout.text = food.img + "\n\n\n" + food.img
+            tvProductAbout.text = food.about
             tvProductName.text = food.content
-            tvProductPrice.text = "90 000 so`m"
-            tvProductCount.text = "1"
+            tvProductPrice.text = food.price?.toInt().toString().plus(" so'm")
+            tvProductCount.text = productCount.toString()
             Glide.with(requireContext()).load(food.img).into(bn.ivFoodDetail)
 
             btnCountPlus.setOnClickListener {
-                tvProductCount.text =
-                    (Integer.valueOf(tvProductCount.text.toString()) + 1).toString()
+                productCount++
+                tvProductCount.text = productCount.toString()
             }
 
             btnCountMinus.setOnClickListener {
                 tvProductCount.apply {
-                    if (Integer.valueOf(text.toString()) > 1) {
-                        text = (Integer.valueOf(text.toString()) - 1).toString()
+                    if (productCount > 1) {
+                        productCount--
+                        text = productCount.toString()
                     }
                 }
             }

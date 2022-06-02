@@ -1,11 +1,14 @@
 package com.cibo.cibo.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cibo.cibo.R
+import com.cibo.cibo.activity.LoginActivity
 import com.cibo.cibo.adapter.CardAdapter
 import com.cibo.cibo.databinding.FragmentCardBinding
 import com.cibo.cibo.model.Card
@@ -49,6 +52,10 @@ class CardFragment : Fragment() {
         val adapter = CardAdapter()
         adapter.submitList(productList)
         bn.rvCart.adapter = adapter
+
+        bn.btnOrder.setOnClickListener {
+            startActivity(Intent(requireActivity(), LoginActivity::class.java))
+        }
     }
 
     override fun onDestroy() {

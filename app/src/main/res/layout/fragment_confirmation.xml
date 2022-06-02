@@ -74,6 +74,7 @@
         android:layout_marginTop="56dp"
         android:gravity="center"
         android:textAllCaps="false"
+        android:text="@string/resend"
         android:textColor="@color/main_red"
         android:textSize="16sp" />
 

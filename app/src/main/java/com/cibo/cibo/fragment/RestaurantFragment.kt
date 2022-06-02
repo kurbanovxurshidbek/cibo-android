@@ -37,7 +37,12 @@ class RestaurantFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setTransparentStatusBarColor(requireContext(), R.color.black,  R.color.white, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+        setTransparentStatusBarColor(
+            requireContext(),
+            R.color.black,
+            R.color.white,
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        )
         _bn = FragmentRestaurantBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -161,7 +166,6 @@ class RestaurantFragment : BaseFragment() {
         ).attach()
     }
 
-    @SuppressLint("SetTextI18n")
     fun openCartButton(count: Int, food: Food?) {
         productCount += count
         bn.parentMotionLayout.transitionToEnd()
@@ -176,7 +180,7 @@ class RestaurantFragment : BaseFragment() {
                 productPrice += it
             }
         }
-        bn.cartPrice.text = productPrice.toInt().toString() + " so'm"
+        bn.cartPrice.text = productPrice.toInt().toString().plus(" so'm")
     }
 
     private fun getCardList(map: HashMap<Food, Int>): ArrayList<Card> {
