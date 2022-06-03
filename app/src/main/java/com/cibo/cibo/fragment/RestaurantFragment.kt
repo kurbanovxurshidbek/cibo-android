@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
@@ -75,11 +76,19 @@ class RestaurantFragment : BaseFragment() {
             .load("https://images.unsplash.com/photo-1513639776629-7b61b0ac49cb?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167")
             .into(bn.detailImageView)
 
+        bn.frameBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         bn.cardView.setOnClickListener {
             val args = Bundle()
             val data: String = Gson().toJson(getCardList(productMap))
             args.putString("productList", data)
             findNavController().navigate(R.id.action_restaurantFragment_to_cardFragment, args)
+        }
+
+        setFragmentResultListener(ProductAboutFragment.REQUEST_KEY) { _, bundle ->
+            openCartButton(bundle.getInt("foodCount"), bundle.getSerializable("food") as Food?)
         }
 
         initTabLayout()
@@ -173,11 +182,11 @@ class RestaurantFragment : BaseFragment() {
         food?.let { it ->
 
             var newCount = productMap.getOrDefault(it, 0)
-            newCount++
+            newCount += count
             productMap[it] = newCount
 
             it.price?.let {
-                productPrice += it
+                productPrice += it * count
             }
         }
         bn.cartPrice.text = productPrice.toInt().toString().plus(" so'm")

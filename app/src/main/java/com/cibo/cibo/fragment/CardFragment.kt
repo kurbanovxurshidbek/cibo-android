@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cibo.cibo.R
 import com.cibo.cibo.activity.LoginActivity
@@ -52,6 +53,10 @@ class CardFragment : Fragment() {
         val adapter = CardAdapter()
         adapter.submitList(productList)
         bn.rvCart.adapter = adapter
+
+        bn.ivBtnBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         bn.btnOrder.setOnClickListener {
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
