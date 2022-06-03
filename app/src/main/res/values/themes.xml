@@ -31,6 +31,10 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="oval">
+        <item name="cornerSize">20%</item>
+    </style>
+
     <style name="BottomsheetDialogAnim">
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
