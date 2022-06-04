@@ -46,7 +46,6 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.VH>() {
         )
     }
 
-
     override fun onBindViewHolder(holder: CardAdapter.VH, position: Int) = holder.bind()
 
     fun submitList(list: ArrayList<Card>) {
