@@ -23,7 +23,6 @@
         android:background="@color/white"
         app:itemBackground="@null"
         app:itemIconTint="@color/bnv_item_color"
-        app:itemTextColor="@color/bnv_item_color"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/nav_item" />
 

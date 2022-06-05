@@ -4,16 +4,16 @@
 
     <item
         android:id="@+id/ordersFragment"
-        android:icon="@drawable/ic_shopping_basket"
+        android:icon="@drawable/menu_item_basket"
         android:title="@string/history" />
 
     <item
         android:id="@+id/parentScanFragment"
-        android:icon="@drawable/ic_qr_code_scanner"
+        android:icon="@drawable/menu_item_menu"
         android:title="@string/scan" />
 
     <item
         android:id="@+id/parentProfileFragment"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/menu_item_profile"
         android:title="@string/profile" />
 </menu>

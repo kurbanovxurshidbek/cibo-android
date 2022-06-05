@@ -51,14 +51,22 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        initViews()
+        initViews()
         setupScanner()
     }
 
+    override fun onStart() {
+        super.onStart()
+        bn.qrAnimation.playAnimation()
+    }
+
     private fun initViews() {
-        Glide.with(requireContext())
-            .load("https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80")
-            .centerCrop().into(bn.ivBackground)
+        bn.animationButton.setOnClickListener {
+            bn.motionLayout.apply {
+                if (currentState == R.id.start) transitionToEnd()
+                else transitionToStart()
+            }
+        }
     }
 
     override fun onDestroy() {
