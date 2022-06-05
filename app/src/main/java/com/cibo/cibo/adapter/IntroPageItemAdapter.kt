@@ -11,12 +11,16 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cibo.cibo.R
+import com.cibo.cibo.activity.IntroPageActivity
+import com.cibo.cibo.app.CiboApplication
 import com.cibo.cibo.databinding.ItemIntroPageBinding
 import com.cibo.cibo.databinding.ItemItemBinding
 import com.cibo.cibo.model.Card
 import com.cibo.cibo.model.IntroPageItem
+import com.cibo.cibo.utils.Utils
 
-class IntroPageItemAdapter : RecyclerView.Adapter<IntroPageItemAdapter.MyViewHolder>() {
+class IntroPageItemAdapter(var activity: IntroPageActivity) :
+    RecyclerView.Adapter<IntroPageItemAdapter.MyViewHolder>() {
 
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
@@ -25,6 +29,12 @@ class IntroPageItemAdapter : RecyclerView.Adapter<IntroPageItemAdapter.MyViewHol
         fun bind() {
             val item = dif.currentList[adapterPosition]
             binding.apply {
+
+                val params: ViewGroup.LayoutParams = cardView.layoutParams
+                params.height = Utils.screenSize(activity.application).width * 2 / 3
+                params.width = params.height
+                cardView.layoutParams = params
+
                 tvTitle.text = item.title
                 tvDescription.text = item.description
                 ivAnim.setAnimation(item.img)
@@ -61,5 +71,12 @@ class IntroPageItemAdapter : RecyclerView.Adapter<IntroPageItemAdapter.MyViewHol
             ): Boolean =
                 oldItem == newItem
         }
+    }
+
+    /**
+     * Set ShapeableImageView height as screen width
+     */
+    private fun setViewHeight(view: View) {
+
     }
 }

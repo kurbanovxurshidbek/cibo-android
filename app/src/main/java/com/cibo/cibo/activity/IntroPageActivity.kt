@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.viewpager2.widget.ViewPager2
 import com.cibo.cibo.R
 import com.cibo.cibo.adapter.IntroPageItemAdapter
@@ -25,15 +26,13 @@ class IntroPageActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.apply {
-            val adapter = IntroPageItemAdapter()
+            val adapter = IntroPageItemAdapter(this@IntroPageActivity)
             adapter.submitList(getItems())
             viewPager.adapter = adapter
             dotsIndicator.setViewPager2(viewPager)
 
             tvSkip.setOnClickListener {
-                if (tvSkip.text == getText(R.string.str_skip))
-                    viewPager.currentItem = getItems().size - 1
-                else viewPager.currentItem = 0
+                viewPager.currentItem = getItems().size - 1
             }
 
             btnGetStarted.setOnClickListener {
@@ -70,10 +69,10 @@ class IntroPageActivity : AppCompatActivity() {
                 ) {
                     if (position == getItems().size - 1) {
                         btnGetStarted.setText(R.string.str_start)
-                        tvSkip.setText(R.string.str_back)
+                        tvSkip.visibility = View.INVISIBLE
                     } else {
                         btnGetStarted.setText(R.string.str_continue)
-                        tvSkip.setText(R.string.str_skip)
+                        tvSkip.visibility = View.VISIBLE
                     }
                 }
             })

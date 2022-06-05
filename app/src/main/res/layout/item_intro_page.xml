@@ -7,32 +7,42 @@
     android:orientation="vertical">
 
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:cardCornerRadius="175dp"
-        app:cardBackgroundColor="#F9F9FB"
-        app:cardElevation="0dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/iv_anim"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/anim_scan_order"
-            app:lottie_repeatCount="-1"
-            app:lottie_repeatMode="restart" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/main_silver_light"
+            app:cardCornerRadius="500dp"
+            app:cardElevation="0dp">
 
-    </androidx.cardview.widget.CardView>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/iv_anim"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_repeatCount="-1"
+                app:lottie_repeatMode="restart" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/font_proxima"
         android:gravity="center"
         android:text="@string/str_intro_one_title"

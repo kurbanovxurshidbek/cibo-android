@@ -15,6 +15,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="SplashTheme" parent="Theme.Cibo">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
     <style name="ColorCursor">
         <item name="colorPrimary">@color/main_dark</item>
     </style>
@@ -61,8 +66,9 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
     <style name="cursore">
-        <item name="colorPrimary" >
+        <item name="colorPrimary">
             @color/main_dark
         </item>
     </style>

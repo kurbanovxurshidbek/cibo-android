@@ -35,13 +35,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
 
-        fun callIntroActivity(context: Context){
-            val intent = Intent(context,IntroPageActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        fun callMainActivity(context: Context){
-        val intent = Intent(context,MainActivity::class.java)
+    fun callIntroActivity(context: Context) {
+        val intent = Intent(context, IntroPageActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    fun callMainActivity(context: Context) {
+        val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -75,8 +76,12 @@ class SplashActivity : AppCompatActivity() {
 
             getWindow().getDecorView()
                 .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) //  set status text dark
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,
-                R.color.white)) // set status background white
+            getWindow().setStatusBarColor(
+                ContextCompat.getColor(
+                    this,
+                    R.color.white
+                )
+            ) // set status background white
         }
     }
 
