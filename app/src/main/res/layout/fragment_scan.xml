@@ -9,46 +9,36 @@
     app:layoutDescription="@xml/scan_motion"
     tools:context=".fragment.ScanFragment">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@color/main_yellow"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/bottomRounded" />
 
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
         android:id="@+id/QRScannerView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/animationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="500dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSwipeDown"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:backgroundTint="@color/main_red"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="swipe down for scan"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:cornerRadius="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/anim_swiping"
+            app:lottie_repeatCount="-1"
+            app:lottie_repeatMode="restart" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_onOff"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:backgroundTint="@color/main_red"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="swipe up for cancel"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:cornerRadius="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

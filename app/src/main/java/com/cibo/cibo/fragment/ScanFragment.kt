@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentScanBinding
 import com.google.zxing.BarcodeFormat
@@ -38,37 +39,26 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setTransparentStatusBarColor(requireContext(), R.color.black,  R.color.white, View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
+        setTransparentStatusBarColor(
+            requireContext(),
+            R.color.black,
+            R.color.white,
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        )
         _bn = FragmentScanBinding.inflate(inflater, container, false)
         return bn.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val formats = mutableListOf(BarcodeFormat.QR_CODE)
-        beepManager = BeepManager(requireActivity())
-        bn.QRScannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
-        bn.QRScannerView.setStatusText("")
-        bn.motionLayout.setTransitionListener(getTransitionListener())
-        bn.QRScannerView.decodeContinuous(object : BarcodeCallback {
-            override fun barcodeResult(result: BarcodeResult?) {
-                result?.let {
-                    beepManager.isBeepEnabled = false
-                    beepManager.playBeepSoundAndVibrate()
+//        initViews()
+        setupScanner()
+    }
 
-                    if (result.text == "cibo") {
-                        bn.QRScannerView.pause()
-                        findNavController().navigate(R.id.action_scanFragment_to_restaurantFragment)
-                    } else {
-                        Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-            }
-
-            override fun possibleResultPoints(resultPoints: MutableList<ResultPoint>?) {
-            }
-        })
+    private fun initViews() {
+        Glide.with(requireContext())
+            .load("https://images.unsplash.com/photo-1486428263684-28ec9e4f2584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80")
+            .centerCrop().into(bn.ivBackground)
     }
 
     override fun onDestroy() {
@@ -106,6 +96,33 @@ class ScanFragment : BaseFragment(), EasyPermissions.PermissionCallbacks {
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
 
+    }
+
+    private fun setupScanner() {
+        val formats = mutableListOf(BarcodeFormat.QR_CODE)
+        beepManager = BeepManager(requireActivity())
+        bn.QRScannerView.barcodeView.decoderFactory = DefaultDecoderFactory(formats)
+        bn.QRScannerView.setStatusText("")
+        bn.motionLayout.setTransitionListener(getTransitionListener())
+        bn.QRScannerView.decodeContinuous(object : BarcodeCallback {
+            override fun barcodeResult(result: BarcodeResult?) {
+                result?.let {
+                    beepManager.isBeepEnabled = false
+                    beepManager.playBeepSoundAndVibrate()
+
+                    if (result.text == "cibo") {
+                        bn.QRScannerView.pause()
+                        findNavController().navigate(R.id.action_scanFragment_to_restaurantFragment)
+                    } else {
+                        Toast.makeText(requireContext(), "Sizning QR xato", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+
+            override fun possibleResultPoints(resultPoints: MutableList<ResultPoint>?) {
+            }
+        })
     }
 
     @AfterPermissionGranted(RC_CAMERA)

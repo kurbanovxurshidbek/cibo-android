@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        app:dotsColor="@color/main_yellow"
+        app:dotsColor="#FFECA5"
         app:dotsSize="8dp"
         app:dotsSpacing="1dp"
         app:selectedDotColor="@color/main_yellow" />
