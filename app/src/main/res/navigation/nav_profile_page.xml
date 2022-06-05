@@ -19,22 +19,37 @@
         <action
             android:id="@+id/action_profileFragment_to_notificationFragment"
             app:destination="@id/notificationFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/aboutUsFragment"
         android:name="com.cibo.cibo.fragment.AboutUsFragment"
         android:label="fragment_aboutus"
-        tools:layout="@layout/fragment_aboutus" />
+        tools:layout="@layout/fragment_aboutus" >
+        <action
+            android:id="@+id/action_aboutUsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.cibo.cibo.fragment.EditProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.cibo.cibo.fragment.NotificationFragment"
         android:label="NotificationFragment"
-        tools:layout="@layout/fragment_notification"/>
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_notificationFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.navigation.fragment.findNavController
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.FragmentEditProfileBinding
 import com.google.android.material.textfield.TextInputEditText
@@ -40,15 +41,26 @@ class EditProfileFragment : BaseFragment() {
     }
 
     private fun initView() {
-
+        val name = bn.textInputName.text.toString()
 
         bn.btnBack.setOnClickListener {
-
-            requireActivity().onBackPressed()
+            findNavController().navigateUp()
         }
 
         bn.btnDone.setOnClickListener {
-            requireActivity().onBackPressed()
+
+            val phoneNumber = bn.tvPhoneNumber.text
+
+//            val bundle = Bundle()
+//            bundle.putString("name", name.toString())
+//            bundle.putString("phoneNumber", phoneNumber.toString())
+//
+//            val fragment = ProfileFragment()
+//            fragment.arguments = bundle
+
+
+           val action = EditProfileFragmentDirections.actionEditProfileFragmentToProfileFragment(name)
+            findNavController().navigate(action)
         }
 
         changeNameAndPhoneNumber()

@@ -42,7 +42,7 @@ class NotificationHistoryAdapter(
             if (item.isRead == true){
                 isRead.visibility = View.VISIBLE
             }else{
-                isRead.visibility = View.GONE
+                isRead.visibility = View.INVISIBLE
             }
         }
     }

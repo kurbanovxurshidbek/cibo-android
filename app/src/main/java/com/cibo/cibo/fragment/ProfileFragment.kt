@@ -5,10 +5,11 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.BottomSheetBinding
 import com.cibo.cibo.databinding.FragmentProfileBinding
@@ -21,17 +22,13 @@ class ProfileFragment : BaseFragment() {
     private var _dBn: BottomSheetBinding? = null
     private val dBn get() = _dBn!!
 
+    
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-       /* setTransparentStatusBarColor(requireContext(),
-            R.color.black,
-            R.color.main_yellow,
-            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-            R.color.teal_700,
-            View.STATUS_BAR_VISIBLE)*/
         _bn = FragmentProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
@@ -48,6 +45,19 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun initView() {
+
+        
+
+
+//        val args = this.arguments
+//
+//        if (args != null) {
+//            val name = args.get("name")
+//            val number = args.get("phoneNumber")
+//
+//
+//            bn.tvPhoneNumber.text = number.toString()
+//        }
 
         val dialog = getBottomSheet()
 
@@ -107,3 +117,5 @@ class ProfileFragment : BaseFragment() {
     }
 
 }
+
+
