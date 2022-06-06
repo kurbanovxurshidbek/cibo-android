@@ -7,16 +7,18 @@
     <string name="permission_required_dialog_title">Necessary permission</string>
     <string name="permission_required_dialog_content">I need the camera permission to let you scan the QR code</string>
 
+
+    <!--    Intro page string data  -->
     <string name="str_skip">Skip</string>
     <string name="str_continue">Continue</string>
-    <string name="str_description">Description</string>
-    <string name="str_qr_code_description">Qr ni scan qiling</string>
-    <string name="str_description_menu">Menu ni oling va Buyurtma bering</string>
-    <string name="str_menu_order">Buyurtma bering</string>
-    <string name="str_menu_order_phone">Telefoningiz orqali qulay tarzda buyurtma bering</string>
+    <string name="str_start">Start</string>
+    <string name="str_intro_one_title">Order without queues</string>
+    <string name="str_intro_one_text">You can order your favorite dish directly from your phone</string>
+    <string name="str_intro_two_title">Monitor order status</string>
+    <string name="str_intro_two_text">Get a personal code and track the readiness of the order</string>
+    <string name="str_intro_three_title">Just scan the QR</string>
+    <string name="str_intro_three_text">All this can be easily done by scanning the QR code.</string>
 
-    <string name="str_save_your_time">Save your time</string>
-    <string name="str_get_started">Boshlash</string>
     <string name="str_log_out">Log out</string>
     <string name="str_choose_language">Choose language</string>
     <string name="str_uzbek">Uzbek</string>
@@ -35,4 +37,5 @@
     <string name="str_birthday">Birthday</string>
     <string name="str_gender">Gender</string>
     <string name="str_notifications">Notifications</string>
+    <string name="str_back">Back</string>
 </resources>

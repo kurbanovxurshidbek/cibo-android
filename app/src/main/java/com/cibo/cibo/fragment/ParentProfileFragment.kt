@@ -9,7 +9,7 @@ import com.cibo.cibo.R
 
 class ParentProfileFragment : Fragment() {
 
-    private lateinit var args: ProfileFragmentArgs
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,8 +21,6 @@ class ParentProfileFragment : Fragment() {
     }
 
     private fun initView() {
-        if (args.name != null){
-            bn.tvFullname.text = args.name
-        }
+
     }
 }

@@ -21,7 +21,12 @@
             app:destination="@id/notificationFragment" />
         <argument
             android:name="name"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue=" " />
+        <argument
+            android:name="number"
+            app:argType="string"
+            android:defaultValue=" " />
     </fragment>
 
     <fragment
@@ -52,4 +57,7 @@
             android:id="@+id/action_notificationFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <argument
+        android:name="name"
+        android:defaultValue=" " />
 </navigation>

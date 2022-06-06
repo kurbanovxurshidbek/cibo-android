@@ -30,6 +30,12 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.VH>() {
                 Glide.with(root.context).load(food.img).into(tvProductImg)
                 tvProductName.text = food.content
                 tvProductPrice.text = food.price?.toInt()?.times(details.count).toString() + " so'm"
+
+                btnCountMinus.setOnClickListener {
+                    if (tvProductCount.text.toString().toInt() == 1) {
+                        removeItem(details)
+                    }
+                }
             }
         }
     }
@@ -40,11 +46,19 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.VH>() {
         )
     }
 
-
     override fun onBindViewHolder(holder: CardAdapter.VH, position: Int) = holder.bind()
 
     fun submitList(list: ArrayList<Card>) {
         dif.submitList(list)
+    }
+
+    fun removeItem(card: Card) {
+        val newList = ArrayList<Card>()
+        dif.currentList.forEach {
+            newList.add(it)
+        }
+        newList.remove(card)
+        submitList(newList)
     }
 
     override fun getItemCount(): Int = dif.currentList.size

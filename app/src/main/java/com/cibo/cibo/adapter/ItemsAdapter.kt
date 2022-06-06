@@ -42,7 +42,7 @@ class ItemsAdapter(private val context: RestaurantFragment) :
 
             binding.apply {
                 tvFoodName.text = food.content
-                Glide.with(context).load(food.img).into(ivFoodPhoto)
+                Glide.with(context).load(food.img).placeholder(R.color.main_silver_light).into(ivFoodPhoto)
                 tvFoodPrice.text = food.price?.toInt().toString().plus(" so'm")
 
                 btnCountMinus.setOnClickListener {

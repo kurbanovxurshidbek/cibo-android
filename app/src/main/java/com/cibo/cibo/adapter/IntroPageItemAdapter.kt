@@ -1,41 +1,82 @@
 package com.cibo.cibo.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.cibo.cibo.R
+import com.cibo.cibo.activity.IntroPageActivity
+import com.cibo.cibo.app.CiboApplication
+import com.cibo.cibo.databinding.ItemIntroPageBinding
+import com.cibo.cibo.databinding.ItemItemBinding
+import com.cibo.cibo.model.Card
 import com.cibo.cibo.model.IntroPageItem
+import com.cibo.cibo.utils.Utils
 
-class IntroPageItemAdapter(var context: Context, private var items: ArrayList<IntroPageItem>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_intro_page, parent, false)
-        return MyViewHolder(view)
-    }
+class IntroPageItemAdapter(var activity: IntroPageActivity) :
+    RecyclerView.Adapter<IntroPageItemAdapter.MyViewHolder>() {
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = items[position]
+    private val dif = AsyncListDiffer(this, ITEM_DIFF)
 
-        if (holder is MyViewHolder) {
-            holder.ivPhoto.setImageResource(item.img)
-            holder.tvTitle.text = item.title
-            holder.tvDescription.text = item.description
+    inner class MyViewHolder(private val binding: ItemIntroPageBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            val item = dif.currentList[adapterPosition]
+            binding.apply {
+
+                val params: ViewGroup.LayoutParams = cardView.layoutParams
+                params.height = Utils.screenSize(activity.application).width * 2 / 3
+                params.width = params.height
+                cardView.layoutParams = params
+
+                tvTitle.text = item.title
+                tvDescription.text = item.description
+                ivAnim.setAnimation(item.img)
+            }
         }
-
     }
 
-    override fun getItemCount(): Int {
-        return items.size
+    fun submitList(list: ArrayList<IntroPageItem>) {
+        dif.submitList(list)
     }
 
-    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val ivPhoto: ImageView = view.findViewById(R.id.ivPhoto)
-        val tvTitle: TextView = view.findViewById(R.id.tvTitle)
-        val tvDescription: TextView = view.findViewById(R.id.tvDescription)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder =
+        MyViewHolder(
+            ItemIntroPageBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) = holder.bind()
+
+    override fun getItemCount(): Int = dif.currentList.size
+
+    companion object {
+        private val ITEM_DIFF = object : DiffUtil.ItemCallback<IntroPageItem>() {
+            override fun areItemsTheSame(oldItem: IntroPageItem, newItem: IntroPageItem): Boolean =
+                oldItem.title == newItem.title
+
+            @SuppressLint("DiffUtilEquals")
+            override fun areContentsTheSame(
+                oldItem: IntroPageItem,
+                newItem: IntroPageItem
+            ): Boolean =
+                oldItem == newItem
+        }
+    }
+
+    /**
+     * Set ShapeableImageView height as screen width
+     */
+    private fun setViewHeight(view: View) {
+
     }
 }

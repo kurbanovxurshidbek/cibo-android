@@ -26,24 +26,30 @@ class IntroPageActivity : AppCompatActivity() {
 
     private fun initViews() {
         binding.apply {
-            viewPager.adapter = IntroPageItemAdapter(this@IntroPageActivity, getItems())
+            val adapter = IntroPageItemAdapter(this@IntroPageActivity)
+            adapter.submitList(getItems())
+            viewPager.adapter = adapter
             dotsIndicator.setViewPager2(viewPager)
-            btnContinue.setOnClickListener {
-                viewPager.currentItem = ++viewPager.currentItem
-            }
+
             tvSkip.setOnClickListener {
                 viewPager.currentItem = getItems().size - 1
             }
+
             btnGetStarted.setOnClickListener {
-                saveLoggedState()
-                callMainActivity(this@IntroPageActivity)
-                finish()
+                if (btnGetStarted.text == getText(R.string.str_start)) {
+                    saveLoggedState()
+                    callMainActivity(this@IntroPageActivity)
+                    finish()
+                } else {
+                    viewPager.currentItem++
+                }
             }
         }
         applyPageStateChanges()
     }
-    fun callMainActivity(context: Context){
-        val intent = Intent(context,MainActivity::class.java)
+
+    private fun callMainActivity(context: Context) {
+        val intent = Intent(context, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -62,13 +68,12 @@ class IntroPageActivity : AppCompatActivity() {
                     positionOffsetPixels: Int
                 ) {
                     if (position == getItems().size - 1) {
-                        btnContinue.visibility = View.GONE
-                        btnGetStarted.visibility = View.VISIBLE
+                        btnGetStarted.setText(R.string.str_start)
+                        tvSkip.visibility = View.INVISIBLE
                     } else {
-                        btnContinue.visibility = View.VISIBLE
-                        btnGetStarted.visibility = View.GONE
+                        btnGetStarted.setText(R.string.str_continue)
+                        tvSkip.visibility = View.VISIBLE
                     }
-
                 }
             })
         }
@@ -78,23 +83,23 @@ class IntroPageActivity : AppCompatActivity() {
         val items = ArrayList<IntroPageItem>()
         items.add(
             IntroPageItem(
-                R.drawable.scan,
-                getString(R.string.str_save_your_time),
-                getString(R.string.str_qr_code_description)
+                R.raw.anim_order_phone,
+                getString(R.string.str_intro_one_title),
+                getString(R.string.str_intro_one_text)
             )
         )
         items.add(
             IntroPageItem(
-                R.drawable.help,
-                getString(R.string.str_description),
-                getString(R.string.str_menu_order)
+                R.raw.anim_order_status,
+                getString(R.string.str_intro_two_title),
+                getString(R.string.str_intro_two_text)
             )
         )
         items.add(
             IntroPageItem(
-                R.drawable.menu_phone,
-                getString(R.string.str_description),
-                getString(R.string.str_menu_order_phone)
+                R.raw.anim_scan_order,
+                getString(R.string.str_intro_three_title),
+                getString(R.string.str_intro_three_text)
             )
         )
         return items

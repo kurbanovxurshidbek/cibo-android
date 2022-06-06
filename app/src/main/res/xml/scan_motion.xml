@@ -3,36 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ConstraintSet android:id="@+id/start">
+
         <Constraint
             android:id="@+id/QRScannerView"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/ivBackground"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:alpha="0"
-            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/btnSwipeDown"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/animationButton"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:rotation="180"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <Constraint
-            android:id="@+id/btn_onOff"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:alpha="0"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/ivBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground" />
 
     </ConstraintSet>
 
@@ -41,7 +38,6 @@
             android:id="@+id/QRScannerView"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:alpha="1"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,32 +45,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/btnSwipeDown"
+            android:id="@+id/ivBackground"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="50dp"
-            android:alpha="0"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="600dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/QRScannerView" />
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <Constraint
-            android:id="@+id/btn_onOff"
-            android:layout_width="match_parent"
+            android:id="@+id/animationButton"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="50dp"
-            android:alpha="1"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:rotation="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/QRScannerView" />
+            app:layout_constraintTop_toBottomOf="@+id/ivBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackground"/>
+
     </ConstraintSet>
 
     <Transition

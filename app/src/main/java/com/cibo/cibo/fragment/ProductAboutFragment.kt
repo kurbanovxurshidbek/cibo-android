@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.cibo.cibo.databinding.ProductAboutFragmentBinding
 import com.cibo.cibo.model.Food
@@ -15,22 +17,22 @@ import com.cibo.cibo.R
 
 class ProductAboutFragment : SuperBottomSheetFragment() {
 
-   /* companion object {
-        fun newInstance(food: Food): ProductAboutFragment {
+    companion object {
+        /*fun newInstance(food: Food): ProductAboutFragment {
             val newFragment = ProductAboutFragment()
             val args = Bundle()
             args.putSerializable("productAbout", food)
             newFragment.arguments = args
             return newFragment
-        }
-    }*/
+        }*/
+
+        const val REQUEST_KEY = "selectedProduct"
+    }
 
     private var _bn: ProductAboutFragmentBinding? = null
     private val bn get() = _bn!!
 
     private var productCount = 1
-    private var productMap = HashMap<Food, Int>()
-    private var productPrice = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,6 +72,7 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
             btnCountPlus.setOnClickListener {
                 productCount++
                 tvProductCount.text = productCount.toString()
+                tvProductPrice.text = (productCount * food.price!!).toInt().toString().plus(" so'm")
             }
 
             btnCountMinus.setOnClickListener {
@@ -79,6 +82,16 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
                         text = productCount.toString()
                     }
                 }
+
+                tvProductPrice.text = (productCount * food.price!!).toInt().toString().plus(" so'm")
+            }
+
+            btnAddToCart.setOnClickListener {
+                val args = Bundle()
+                args.putSerializable("food", food)
+                args.putInt("foodCount", productCount)
+                setFragmentResult(REQUEST_KEY, args)
+                findNavController().navigateUp()
             }
         }
     }

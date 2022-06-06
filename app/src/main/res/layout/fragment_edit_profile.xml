@@ -94,7 +94,7 @@
                         android:layout_marginBottom="2dp"
                         android:gravity="center"
                         android:singleLine="true"
-                        android:text="Islombek Nasriddinov"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="17sp"
                         android:textStyle="bold" />
@@ -104,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text="+998 94 685 19 19"
+                        android:text=""
                         android:textColor="@color/main_silver_dark"
                         android:textSize="16sp"
                         android:textStyle="normal" />
@@ -190,6 +190,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/str_number"
                             android:inputType="number"
+                            android:maxLength="18"
                             android:textSize="16sp"
                             android:textStyle="normal" />
 

@@ -23,7 +23,9 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/white_rectangle.xml" value="0.1595" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout-v26/fragment_change_settings.xml" value="0.253125" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_change_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_intro_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/bottom_sheet.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_aboutus.xml" value="0.253125" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_change_settings.xml" value="0.25416666666666665" />
@@ -32,7 +34,7 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_notification.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_parent_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.23055555555555557" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_notification.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_trash.xml" value="0.25416666666666665" />

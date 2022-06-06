@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.BottomSheetBinding
 import com.cibo.cibo.databinding.FragmentProfileBinding
+import com.cibo.cibo.manager.PrefsManager
 
 class ProfileFragment : BaseFragment() {
 
@@ -21,8 +23,6 @@ class ProfileFragment : BaseFragment() {
 
     private var _dBn: BottomSheetBinding? = null
     private val dBn get() = _dBn!!
-
-    
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,19 +45,14 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun initView() {
+        loadData()
 
-        
+        setFragmentResultListener("user"){_, bundle ->
+            bn.tvFullname.text = bundle.getString("name")
+            bn.tvPhoneNumber.text = bundle.getString("number")
+            saveAboutUser(bn.tvFullname.text.toString(), bn.tvPhoneNumber.text.toString())
+        }
 
-
-//        val args = this.arguments
-//
-//        if (args != null) {
-//            val name = args.get("name")
-//            val number = args.get("phoneNumber")
-//
-//
-//            bn.tvPhoneNumber.text = number.toString()
-//        }
 
         val dialog = getBottomSheet()
 
@@ -79,6 +74,15 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
+    fun saveAboutUser(name: String, number: String){
+        PrefsManager.getInstance(requireContext())!!.saveData("name", name)
+        PrefsManager.getInstance(requireContext())!!.saveData("number", number)
+    }
+
+    fun loadData(){
+        bn.tvFullname.text = PrefsManager.getInstance(requireContext())!!.getData("name")
+        bn.tvPhoneNumber.text = PrefsManager.getInstance(requireContext())!!.getData("number")
+    }
 
     private fun getBottomSheet(): Dialog {
         val dialog = Dialog(requireContext())
