@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">cibo</string>
     <string name="history">Orders</string>
-    <string name="scan">Scan</string>
+    <string name="scan">Menu</string>
     <string name="profile">Profile</string>
     <string name="camera_permission_explanation">I need to access your camera to scan the QR code</string>
     <string name="permission_required_dialog_title">Necessary permission</string>
@@ -38,4 +38,6 @@
     <string name="str_gender">Gender</string>
     <string name="str_notifications">Notifications</string>
     <string name="str_back">Back</string>
+    <string name="str_scan_title">Swipe for scan</string>
+    <string name="str_scan_description">By scanning you can view <b> our menu </b> and place <b> orders </b></string>
 </resources>
