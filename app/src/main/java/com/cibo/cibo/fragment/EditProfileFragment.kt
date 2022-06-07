@@ -19,6 +19,7 @@ class EditProfileFragment : BaseFragment() {
     lateinit var et_name: TextInputEditText
     lateinit var et_number: TextInputEditText
     lateinit var et_surname: TextInputEditText
+    lateinit var et_birthday: TextInputEditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,6 +73,9 @@ class EditProfileFragment : BaseFragment() {
     private fun changeNameAndPhoneNumber() {
         et_name = bn.textInputName
         et_surname = bn.textInputSurName
+        et_number = bn.textInputNumber
+        et_birthday = bn.textInputBirthDate
+
 
         et_name.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -93,9 +97,6 @@ class EditProfileFragment : BaseFragment() {
 
             override fun afterTextChanged(p0: Editable?) {}
         })
-
-
-        et_number = bn.textInputNumber
 
         et_number.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -132,23 +133,15 @@ class EditProfileFragment : BaseFragment() {
             if (keyCode == KeyEvent.KEYCODE_DEL) {
 
                 if (et_number.text!![et_number.text!!.length - 1].toString() == " ") {
-                    et_number.setText(
-                        et_number.text!!.substring(
-                            0,
-                            et_number.text!!.length - 1
-                        )
-                    )
+
+                    et_number.setText(et_number.text!!.substring(0, et_number.text!!.length - 1))
                     editLastCursor()
-                } else if (et_number.text?.get(et_number.text?.length!! - 1)
-                        .toString() == ")"
-                ) {
-                    et_number.setText(
-                        et_number.text!!.substring(
-                            0,
-                            et_number.text!!.length - 1
-                        )
-                    )
+
+                } else if (et_number.text?.get(et_number.text?.length!! - 1).toString() == ")") {
+
+                    et_number.setText(et_number.text!!.substring(0, et_number.text!!.length - 1))
                     editLastCursor()
+
                 }
 
             } else {
@@ -161,10 +154,12 @@ class EditProfileFragment : BaseFragment() {
                     et_number.setText("${et_number.text} ")
                     editLastCursor()
                 }
+
                 if (et_number.text!!.length == 12) {
                     et_number.setText("${et_number.text} ")
                     editLastCursor()
                 }
+
                 if (et_number.text!!.length == 15) {
                     et_number.setText("${et_number.text} ")
                     editLastCursor()
@@ -172,6 +167,8 @@ class EditProfileFragment : BaseFragment() {
             }
             false
         }
+
+
     }
 
 
