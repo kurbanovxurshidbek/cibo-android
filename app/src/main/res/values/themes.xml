@@ -15,6 +15,12 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="tab_text_style">
+        <item name="fontFamily">@font/font_proxima</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="bottomRounded">
         <item name="cornerSizeBottomRight">40dp</item>
         <item name="cornerSizeBottomLeft">40dp</item>
@@ -51,8 +57,8 @@
     </style>
 
     <style name="top_corner_rounded">
-        <item name="cornerSizeTopLeft">20dp</item>
-        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeTopLeft">30dp</item>
+        <item name="cornerSizeTopRight">30dp</item>
     </style>
 
 

@@ -14,7 +14,6 @@ import com.cibo.cibo.R
 import com.cibo.cibo.activity.IntroPageActivity
 import com.cibo.cibo.app.CiboApplication
 import com.cibo.cibo.databinding.ItemIntroPageBinding
-import com.cibo.cibo.databinding.ItemItemBinding
 import com.cibo.cibo.model.Card
 import com.cibo.cibo.model.IntroPageItem
 import com.cibo.cibo.utils.Utils

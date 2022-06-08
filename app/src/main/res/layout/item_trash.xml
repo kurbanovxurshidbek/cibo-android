@@ -46,8 +46,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
+                android:fontFamily="@font/font_proxima"
                 android:text="Max Burger"
-                android:textColor="@color/black"
+                android:textColor="@color/main_dark"
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
@@ -74,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:backgroundTint="#F8F8FA"
+                    android:fontFamily="@font/font_proxima"
                     android:gravity="center"
                     android:minEms="1"
                     android:text="1"
@@ -112,10 +113,10 @@
 
                 <ImageView
                     android:id="@+id/iv_go_button"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
                     android:src="@drawable/ic_arrow"
-                    app:tint="#888888" />
+                    app:tint="@color/main_silver_dark" />
 
                 <TextView
                     android:id="@+id/tv_product_price"
@@ -123,7 +124,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="10000 sum"
-                    android:textColor="@color/black"
+                    android:fontFamily="@font/font_proxima"
+                    android:textColor="@color/main_dark"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

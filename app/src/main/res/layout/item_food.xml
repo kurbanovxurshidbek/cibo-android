@@ -57,12 +57,13 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:ellipsize="end"
+                        android:fontFamily="@font/font_proxima"
                         android:maxLines="1"
                         android:paddingStart="0dp"
                         android:paddingTop="2.5dp"
                         android:paddingEnd="10dp"
                         android:text="Xot Dog"
-                        android:textColor="#2F2B21"
+                        android:textColor="@color/main_dark"
                         android:textSize="17sp"
                         android:textStyle="normal"
                         tools:ignore="NestedWeights" />
@@ -72,9 +73,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
+                        android:fontFamily="@font/font_proxima"
                         android:src="@drawable/ic_launcher_background"
                         android:text="28 000 so'm"
-                        android:textColor="#808080"
+                        android:textColor="@color/main_silver_dark"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -85,7 +87,7 @@
                     android:layout_height="35dp"
                     android:layout_marginEnd="10dp"
                     android:background="@drawable/shape_rectangle_plus_minus"
-                    android:backgroundTint="#D94442"
+                    android:backgroundTint="@color/main_red"
                     android:rotation="180"
                     android:text="+"
                     android:textColor="@color/white" />

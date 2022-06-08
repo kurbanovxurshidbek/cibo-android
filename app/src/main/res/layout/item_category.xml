@@ -17,6 +17,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:fontFamily="@font/font_proxima"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Category" />
 

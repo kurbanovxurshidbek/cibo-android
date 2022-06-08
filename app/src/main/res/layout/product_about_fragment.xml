@@ -11,21 +11,23 @@
         android:id="@+id/view_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/shape_top_corner_rounded"
+        android:backgroundTint="@color/white"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:gravity="center" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="4dp"
-                android:layout_marginVertical="2dp"
-                android:backgroundTint="@color/white"
-                app:cardCornerRadius="2dp" />
+        <!--  <androidx.cardview.widget.CardView
+              android:layout_width="50dp"
+              android:layout_height="4dp"
+              android:backgroundTint="#D8D8D8"
+              app:cardCornerRadius="2dp" />
 
-        </LinearLayout>
+      </LinearLayout>-->
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -41,6 +43,7 @@
                     android:id="@+id/iv_food_detail"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
+                    android:layout_marginHorizontal="2dp"
                     android:scaleType="centerCrop"
                     android:src="@color/teal_200"
                     app:shapeAppearanceOverlay="@style/top_corner_rounded" />
@@ -55,8 +58,8 @@
                         android:id="@+id/tv_product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_proxima"
                         android:padding="15dp"
-                        android:text="Max Burger"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -66,9 +69,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp"
+                        android:fontFamily="@font/font_proxima"
                         android:paddingHorizontal="15dp"
-                        android:textColor="#3A3A3A"
-                        android:textSize="17sp" />
+                        android:textColor="#56544A"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -107,7 +111,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/shape_rectangle_plus_minus"
-                        android:backgroundTint="#F5F5FA"
+                        android:backgroundTint="@color/main_silver_light"
                         android:gravity="center"
                         android:rotation="180"
                         android:text="–"
@@ -119,11 +123,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
+                        android:fontFamily="@font/font_proxima"
                         android:gravity="center"
                         android:minEms="1"
                         android:paddingHorizontal="4dp"
                         android:paddingVertical="4dp"
-                        android:text="1"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -133,7 +137,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/shape_rectangle_plus_minus"
-                        android:backgroundTint="#F5F5FA"
+                        android:backgroundTint="@color/main_silver_light"
                         android:gravity="center"
                         android:text="+"
                         android:textColor="@color/black"
@@ -145,23 +149,26 @@
                     android:id="@+id/tv_product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/font_proxima"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:text="90 000 so'm"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_add_to_cart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="#D94442"
-                android:paddingVertical="15dp"
-                app:cornerRadius="10dp"
-                android:text="Add to cart" />
+                android:backgroundTint="@color/main_red"
+                android:fontFamily="@font/font_proxima"
+                android:text="@string/str_add_to_cart"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
 

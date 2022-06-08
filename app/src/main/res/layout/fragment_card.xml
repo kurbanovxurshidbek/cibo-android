@@ -29,6 +29,7 @@
                 app:tint="@color/black" />
 
             <TextView
+                android:fontFamily="@font/font_proxima"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
@@ -59,12 +60,11 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_cart"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_trash"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_order"
@@ -73,8 +73,11 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
             android:backgroundTint="@color/main_red"
+            android:fontFamily="@font/font_proxima"
             android:text="Order"
+            android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textStyle="bold"
             app:cornerRadius="10dp" />
 
     </LinearLayout>

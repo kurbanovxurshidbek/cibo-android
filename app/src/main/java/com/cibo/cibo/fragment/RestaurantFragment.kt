@@ -166,13 +166,11 @@ class RestaurantFragment : BaseFragment() {
         }
     }
 
-
     private fun initMediator() {
-        TabbedListMediator(
-            bn.recyclerView,
-            bn.tabLayout,
-            categories.indices.toList()
-        ).attach()
+        val mediator =
+            TabbedListMediator(bn.recyclerView, bn.tabLayout, categories.indices.toList())
+        mediator.setSmoothScroll(true)
+        mediator.attach()
     }
 
     fun openCartButton(count: Int, food: Food?) {
