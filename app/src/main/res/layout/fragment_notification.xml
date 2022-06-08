@@ -28,10 +28,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:fontFamily="@font/font_proxima"
             android:paddingStart="30dp"
             android:text="@string/str_notifications"
             android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textColor="@color/main_dark"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -60,11 +61,11 @@
 
 
             <LinearLayout
-                app:layout_scrollFlags="scroll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,9 +75,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/font_proxima"
                         android:singleLine="true"
                         android:text="@string/str_notification"
-                        android:textColor="@color/black"
+                        android:textColor="@color/main_dark"
                         android:textSize="16sp"
                         android:textStyle="normal" />
 
@@ -92,10 +94,10 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
             android:id="@+id/rv_notification"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp" />
 
     </LinearLayout>
 
