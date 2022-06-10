@@ -14,9 +14,7 @@
         android:theme="@style/Theme.Cibo">
 
         <activity android:name=".activity.IntroPageActivity" />
-
-        <activity
-            android:name=".activity.MainActivity" />
+        <activity android:name=".activity.MainActivity" />
 
         <activity
             android:name=".activity.SplashActivity"
