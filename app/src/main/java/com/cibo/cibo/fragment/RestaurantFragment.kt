@@ -91,6 +91,10 @@ class RestaurantFragment : BaseFragment() {
             openCartButton(bundle.getInt("foodCount"), bundle.getSerializable("food") as Food?)
         }
 
+        setFragmentResultListener(CardFragment.REQUEST_KEY_TRASH) { _, _ ->
+            closeCartButton()
+        }
+
         initTabLayout()
         initRecycler()
         initMediator()
@@ -188,6 +192,13 @@ class RestaurantFragment : BaseFragment() {
             }
         }
         bn.cartPrice.text = productPrice.toInt().toString().plus(" so'm")
+    }
+
+    private fun closeCartButton() {
+        bn.motionLayout.transitionToStart()
+        productCount = 0
+        productMap = HashMap()
+        productPrice = 0f
     }
 
     private fun getCardList(map: HashMap<Food, Int>): ArrayList<Card> {

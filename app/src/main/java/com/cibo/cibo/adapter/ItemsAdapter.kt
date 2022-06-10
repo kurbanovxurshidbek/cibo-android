@@ -39,6 +39,7 @@ class ItemsAdapter(private val context: RestaurantFragment) :
             val food = dif.currentList[adapterPosition]
             val args = Bundle()
             args.putSerializable("productAbout", food)
+            args.putBoolean("isAbout", false)
 
             binding.apply {
                 tvFoodName.text = food.content
