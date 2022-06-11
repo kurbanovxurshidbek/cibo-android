@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cibo.cibo.R
@@ -18,7 +19,11 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-class CardFragment : Fragment() {
+class CardFragment : BaseFragment() {
+
+    companion object {
+        const val REQUEST_KEY_TRASH = "productsDelete"
+    }
 
     private var _bn: FragmentCardBinding? = null
     private val bn get() = _bn!!
@@ -52,6 +57,7 @@ class CardFragment : Fragment() {
     private fun initViews() {
         val adapter = CardAdapter()
         adapter.submitList(productList)
+        adapter.submitFragment(this)
         bn.rvCart.adapter = adapter
 
         bn.ivBtnBack.setOnClickListener {
@@ -61,6 +67,15 @@ class CardFragment : Fragment() {
         bn.btnOrder.setOnClickListener {
             startActivity(Intent(requireActivity(), LoginActivity::class.java))
         }
+
+        bn.ivTrash.setOnClickListener {
+            clearCart()
+        }
+    }
+
+    fun clearCart() {
+        setFragmentResult(REQUEST_KEY_TRASH, Bundle())
+        findNavController().navigate(R.id.action_cardFragment_to_restaurantFragment)
     }
 
     override fun onDestroy() {

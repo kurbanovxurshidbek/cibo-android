@@ -8,7 +8,7 @@
         android:id="@+id/scanFragment"
         android:name="com.cibo.cibo.fragment.ScanFragment"
         android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" >
+        tools:layout="@layout/fragment_scan">
 
         <action
             android:id="@+id/action_scanFragment_to_restaurantFragment"
@@ -19,7 +19,7 @@
         android:id="@+id/restaurantFragment"
         android:name="com.cibo.cibo.fragment.RestaurantFragment"
         android:label="fragment_restaurant"
-        tools:layout="@layout/fragment_restaurant" >
+        tools:layout="@layout/fragment_restaurant">
 
         <action
             android:id="@+id/action_restaurantFragment_to_productAboutFragment"
@@ -34,10 +34,23 @@
         android:name="com.cibo.cibo.fragment.ProductAboutFragment"
         android:label="product_about_fragment"
         tools:layout="@layout/product_about_fragment" />
+
     <fragment
         android:id="@+id/cardFragment"
         android:name="com.cibo.cibo.fragment.CardFragment"
         android:label="fragment_card"
-        tools:layout="@layout/fragment_card" />
+        tools:layout="@layout/fragment_card">
+
+        <action
+            android:id="@+id/action_cardFragment_to_productAboutFragment"
+            app:destination="@id/productAboutFragment" />
+        <action
+            android:id="@+id/action_cardFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/restaurantFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
 
 </navigation>
