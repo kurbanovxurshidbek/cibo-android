@@ -1,4 +1,4 @@
-package com.cibo.cibo.network
+package com.cibo.cibo.data.network
 
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory

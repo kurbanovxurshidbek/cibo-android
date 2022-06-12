@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
     android:orientation="vertical">
 
@@ -13,7 +13,8 @@
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:paddingVertical="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -311,19 +312,6 @@
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:src="@drawable/dashed_line" />
             </LinearLayout>
 
 
