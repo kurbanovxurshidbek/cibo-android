@@ -5,12 +5,10 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.BottomSheetBinding
 import com.cibo.cibo.databinding.FragmentProfileBinding

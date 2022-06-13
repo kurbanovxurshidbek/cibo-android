@@ -25,9 +25,11 @@ class ConfirmationFragment : BaseFragment() {
 
     private var sec = 10
 
+    private var seconJob: Job? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _bn = FragmentConfirmationBinding.inflate(inflater, container, false)
         return bn.root
@@ -38,7 +40,7 @@ class ConfirmationFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showKeyboard(bn.ed1)
-        perSecond()
+        seconJob = perSecond()
         phoneNumberColor()
         inputSmsCodeManager()
         resendTextClickManager()
@@ -225,9 +227,7 @@ class ConfirmationFragment : BaseFragment() {
                 sec--
                 val min = sec / 60
                 var s = sec - min * 60
-//                if (s < 10)
-//                    binding.tvResend.text = "Resend in $min:0$s Sec"
-//                else
+
                 bn.tvResend.text = "Resend In $min:$s Sec"
                 if (sec == 0) {
                     bn.tvResend.text = getString(R.string.resend)
@@ -237,6 +237,12 @@ class ConfirmationFragment : BaseFragment() {
                 delay(1000)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        seconJob?.cancel()
     }
 
 
