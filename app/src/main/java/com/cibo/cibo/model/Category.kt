@@ -1,5 +1,8 @@
 package com.cibo.cibo.model
 
-class Category(val name: String, vararg food: Food) {
-    val listOfFoods: List<Food> = food.toList()
-}
+data class Category(
+    val createdDate: String,
+    val foodList: List<Food>,
+    val id: String,
+    val name: String
+)

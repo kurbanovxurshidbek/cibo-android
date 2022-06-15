@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:orientation="vertical">
+    android:layout_marginTop="15dp"
+    app:layoutDescription="@xml/history_motion">
 
     <LinearLayout
+        android:id="@+id/view_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/item_rounded_history"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/view_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingVertical="15dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
+                android:paddingVertical="15dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -34,20 +40,20 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="Zakaz raqami"
+                    android:text="@string/str_order_number"
                     android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_order_num"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="shbuchbsu"
+                    android:text="316"
                     android:textColor="@color/black"
-                    android:textSize="18dp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -59,8 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
                     android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingHorizontal="20dp"
                     android:src="@drawable/dashed_line" />
             </LinearLayout>
 
@@ -70,7 +75,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -78,7 +82,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
+                android:paddingVertical="15dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -86,20 +90,20 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="Vaqti"
+                    android:text="@string/str_order_time"
                     android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_history_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="shbuchbsu"
+                    android:text="17.03.2022, 20:00"
                     android:textColor="@color/black"
-                    android:textSize="18dp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -111,8 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
                     android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingHorizontal="20dp"
                     android:src="@drawable/dashed_line" />
             </LinearLayout>
 
@@ -122,16 +125,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:gravity="center"
-
             android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
+                android:paddingVertical="15dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -139,20 +140,20 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="Buyurtma"
+                    android:text="@string/orders"
                     android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_hisotry_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/font_proxima"
                     android:gravity="center"
-                    android:text="shbuchbsu"
+                    android:text="Big Burger"
                     android:textColor="@color/black"
-                    android:textSize="18dp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -164,159 +165,179 @@
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
                     android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingHorizontal="20dp"
                     android:src="@drawable/dashed_line" />
             </LinearLayout>
 
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="Narxi"
-                    android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
-
-                <TextView
-                    android:id="@+id/tv_history_price"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="shbuchbsu"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:src="@drawable/dashed_line" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="To'lov turi"
-                    android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
-
-                <TextView
-                    android:id="@+id/tv_history_type"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="shbuchbsu"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:layerType="software"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:src="@drawable/dashed_line" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="Location"
-                    android:textColor="@color/main_silver_dark"
-                    android:textSize="16dp" />
-
-                <TextView
-                    android:id="@+id/tv_history_location"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/font_proxima"
-                    android:gravity="center"
-                    android:text="shbuchbsu"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
 
     </LinearLayout>
-</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="@string/str_order_number"
+                    android:textColor="@color/main_silver_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="316"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layerType="software"
+                    android:paddingHorizontal="20dp"
+                    android:src="@drawable/dashed_line" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="@string/str_order_time"
+                    android:textColor="@color/main_silver_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="17.03.2022, 20:00"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layerType="software"
+                    android:paddingHorizontal="20dp"
+                    android:src="@drawable/dashed_line" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="@string/orders"
+                    android:textColor="@color/main_silver_dark"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/font_proxima"
+                    android:gravity="center"
+                    android:text="Big Burger"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layerType="software"
+                    android:paddingHorizontal="20dp"
+                    android:src="@drawable/dashed_line" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_more"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow"
+        app:tint="#BCBCBC" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

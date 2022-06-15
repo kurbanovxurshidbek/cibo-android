@@ -12,7 +12,7 @@ class OrdersViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecy
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun createFragment(position: Int): Fragment {
-        if(position == 1) {
+        if(position == 0) {
             return ActiveOrderFragment()
         }
         return HistoryFragment()

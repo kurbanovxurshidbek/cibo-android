@@ -7,8 +7,6 @@ import android.graphics.drawable.Drawable
 import android.provider.Settings
 import android.util.DisplayMetrics
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.core.content.res.ResourcesCompat
 import com.cibo.cibo.model.ScreenSize
 
@@ -17,9 +15,8 @@ object Utils {
 
     fun Context.getMyDrawable(id: Int): Drawable? = ResourcesCompat.getDrawable(resources, id, null)
 
-    fun getDeviceID(context: Context):String{
-        val device_id: String = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-        return device_id
+    fun getDeviceID(context: Context): String {
+        return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
     }
 
     fun screenSize(context: Application): ScreenSize {

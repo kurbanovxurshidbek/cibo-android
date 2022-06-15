@@ -18,12 +18,12 @@ class HistoryItemsAdapter() : RecyclerView.Adapter<HistoryItemsAdapter.VH>() {
         fun bind() {
             val details = dif.currentList[adapterPosition]
             binding.apply {
-                tvHisotryName.text = details.order_name
+            /*    tvHisotryName.text = details.order_name
                 tvHistoryDate.text=details.date
                 tvHistoryPrice.text=details.price
                 tvHistoryType.text=details.pay_type
                 tvOrderNum.text=details.order_number
-                tvHistoryLocation.text=details.location
+                tvHistoryLocation.text=details.location*/
 
             }
         }

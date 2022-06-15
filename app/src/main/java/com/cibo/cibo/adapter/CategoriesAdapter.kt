@@ -21,7 +21,7 @@ class CategoriesAdapter(private val fragment: RestaurantFragment) : RecyclerView
                 recyclerView.apply {
                     layoutManager = GridLayoutManager(context, 2)
                     val newAdapter = ItemsAdapter(fragment)
-                    newAdapter.submitList(details.listOfFoods)
+                    newAdapter.submitList(details.foodList)
                     adapter = newAdapter
                 }
             }
