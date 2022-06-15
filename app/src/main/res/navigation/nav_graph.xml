@@ -17,4 +17,12 @@
         android:name="com.cibo.cibo.fragment.ParentProfileFragment"
         android:label="fragment_parent_profile"
         tools:layout="@layout/fragment_parent_profile" />
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.cibo.cibo.fragment.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" />
+
+
 </navigation>

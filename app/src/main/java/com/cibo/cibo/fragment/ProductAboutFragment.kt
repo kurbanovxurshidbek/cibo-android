@@ -62,12 +62,15 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
 
     private fun initViews() {
         val food: Food = arguments?.getSerializable("productAbout") as Food
+        val isAbout: Boolean = arguments?.getBoolean("isAbout") as Boolean
         bn.apply {
             tvProductAbout.text = food.about
             tvProductName.text = food.content
             tvProductPrice.text = food.price?.toInt().toString().plus(" so'm")
             tvProductCount.text = productCount.toString()
             Glide.with(requireContext()).load(food.img).into(bn.ivFoodDetail)
+
+            if (isAbout) viewSetParamsFood.visibility = View.GONE
 
             btnCountPlus.setOnClickListener {
                 productCount++

@@ -24,6 +24,7 @@ class ConfirmationFragment : BaseFragment() {
     private val bn get() = _bn!!
 
     private var sec = 10
+    private var secondJob : Job?=null
 
     private var seconJob: Job? = null
 
@@ -41,6 +42,7 @@ class ConfirmationFragment : BaseFragment() {
 
         showKeyboard(bn.ed1)
         seconJob = perSecond()
+        secondJob=perSecond()
         phoneNumberColor()
         inputSmsCodeManager()
         resendTextClickManager()
@@ -239,10 +241,11 @@ class ConfirmationFragment : BaseFragment() {
         }
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
-
-        seconJob?.cancel()
+        secondJob?.cancel()
     }
 
 

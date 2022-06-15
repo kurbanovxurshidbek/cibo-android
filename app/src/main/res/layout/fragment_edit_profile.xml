@@ -227,6 +227,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/font_proxima"
                             android:hint="@string/str_birthday"
+                            android:maxLength="10"
                             android:inputType="date"
                             android:textSize="16sp"
                             android:textStyle="normal" />

@@ -5,7 +5,7 @@
     <item
         android:id="@+id/ordersFragment"
         android:icon="@drawable/menu_item_basket"
-        android:title="@string/history" />
+        android:title="@string/orders" />
 
     <item
         android:id="@+id/parentScanFragment"

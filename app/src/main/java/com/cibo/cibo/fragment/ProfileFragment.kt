@@ -48,7 +48,8 @@ class ProfileFragment : BaseFragment() {
         setFragmentResultListener("user"){_, bundle ->
             bn.tvFullname.text = bundle.getString("name")
             bn.tvPhoneNumber.text = bundle.getString("number")
-            saveAboutUser(bn.tvFullname.text.toString(), bn.tvPhoneNumber.text.toString())
+            var birthday = bundle.getString("b_day")
+            saveAboutUser(bn.tvFullname.text.toString(), bn.tvPhoneNumber.text.toString(), birthday.toString())
         }
 
 
@@ -72,9 +73,10 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
-    fun saveAboutUser(name: String, number: String){
+    fun saveAboutUser(name: String, number: String, birthday: String){
         PrefsManager.getInstance(requireContext())!!.saveData("name", name)
         PrefsManager.getInstance(requireContext())!!.saveData("number", number)
+        PrefsManager.getInstance(requireContext())!!.saveData("b_day", birthday)
     }
 
     fun loadData(){

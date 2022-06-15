@@ -81,6 +81,7 @@
         </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
+            android:id="@+id/viewSetParamsFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
