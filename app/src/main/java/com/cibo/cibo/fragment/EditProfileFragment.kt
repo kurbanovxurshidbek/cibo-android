@@ -64,7 +64,7 @@ class EditProfileFragment : BaseFragment() {
     private fun initView() {
         bn.tvFullname.text = PrefsManager.getInstance(requireContext())!!.getData("name")
         bn.tvPhoneNumber.text = PrefsManager.getInstance(requireContext())!!.getData("number")
-        bn.textInputBirthDate.setText(PrefsManager.getInstance(requireContext())!!.getData("b_day").toString())
+        bn.textInputBirthDate.setText(PrefsManager.getInstance(requireContext())!!.getData("b_day"))
 
 
 
@@ -97,7 +97,6 @@ class EditProfileFragment : BaseFragment() {
 
         changeNameAndPhoneNumber()
     }
-
 
 
     @SuppressLint("SetTextI18n")
@@ -204,6 +203,8 @@ class EditProfileFragment : BaseFragment() {
             false
         }
 
+
+
         et_birthday.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -224,8 +225,7 @@ class EditProfileFragment : BaseFragment() {
 
         et_birthday.setOnFocusChangeListener { View, hasFocos ->
             if (hasFocos) {
-                    showSelectDateDialog()
-                    hideKeyboard()
+                showSelectDateDialog()
             } else {
 
             }
@@ -248,22 +248,30 @@ class EditProfileFragment : BaseFragment() {
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
+
+
         val dialog = DatePickerDialog(requireContext(),
             android.R.style.Theme_Holo_Light_Dialog_MinWidth,
             dateSetListener, year, month, day)
-
+        dialog.show()
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window!!.attributes.windowAnimations = R.style.BottomsheetDialogAnim
+        dialog.window!!.setGravity(Gravity.CENTER)
+        dialog.datePicker.maxDate = System.currentTimeMillis()
+
         dialog.setOnCancelListener {
             et_birthday.setText(PrefsManager.getInstance(requireContext())!!.getData("b_day"))
             editLastCursor()
         }
-        dialog.show()
-    }
 
+    }
 
     private fun editLastCursor() {
         bn.textInputNumber.setSelection(bn.textInputNumber.length())
         bn.textInputBirthDate.setSelection(bn.textInputBirthDate.length())
+        bn.textInputName.setSelection(bn.textInputName.length())
+        bn.textInputSurName.setSelection(bn.textInputSurName.length())
+        bn.textInputGender.setSelection(bn.textInputGender.length())
     }
 
     private fun errorCase(msg: String, id: TextInputLayout) {
