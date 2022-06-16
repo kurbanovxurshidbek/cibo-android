@@ -1,13 +1,17 @@
 package com.cibo.cibo.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmadhamwi.tabsync.TabbedListMediator
@@ -17,13 +21,19 @@ import com.cibo.cibo.adapter.CategoriesAdapter
 import com.cibo.cibo.databinding.FragmentRestaurantBinding
 import com.cibo.cibo.helper.SpacesItemDecoration
 import com.cibo.cibo.model.Card
+import com.cibo.cibo.model.Category
 import com.cibo.cibo.model.Food
+import com.cibo.cibo.utils.UiStateObject
+import com.cibo.cibo.viewmodel.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class RestaurantFragment : BaseFragment() {
 
+    private val viewModel by viewModels<RestaurantViewModel>()
     private var _bn: FragmentRestaurantBinding? = null
     private val bn get() = _bn!!
 
@@ -32,6 +42,12 @@ class RestaurantFragment : BaseFragment() {
     private var productCount = 0
     private var productMap = HashMap<Food, Int>()
     private var productPrice = 0f
+    private var categories: ArrayList<Category> = ArrayList()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getCategories("2c929e9e8160ff910181612778710002", "uz")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,7 +66,7 @@ class RestaurantFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews()
+        setupObservers()
     }
 
     override fun onStart() {
@@ -88,7 +104,10 @@ class RestaurantFragment : BaseFragment() {
         }
 
         setFragmentResultListener(ProductAboutFragment.REQUEST_KEY) { _, bundle ->
-            openCartButton(bundle.getInt("foodCount"), bundle.getSerializable("food") as Food?)
+            openCartButton(
+                bundle.getInt("foodCount"),
+                bundle.getSerializable("food") as Food?
+            )
         }
 
         setFragmentResultListener(CardFragment.REQUEST_KEY_TRASH) { _, _ ->
@@ -187,7 +206,7 @@ class RestaurantFragment : BaseFragment() {
             newCount += count
             productMap[it] = newCount
 
-            it.price?.let {
+            it.price.let {
                 productPrice += it * count
             }
         }
@@ -207,6 +226,32 @@ class RestaurantFragment : BaseFragment() {
             list.add(Card(food, count))
         }
         return list
+    }
+
+    private fun setupObservers() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.newsState.collect {
+                    when (it) {
+                        is UiStateObject.LOADING -> {
+                            Log.d("LOADING", "setupObservers")
+                        }
+
+                        is UiStateObject.SUCCESS -> {
+                            Log.d("SUCCESS", it.data[0].toString())
+                            categories.addAll(it.data)
+                            initViews()
+                        }
+
+                        else -> {
+                            if (it is UiStateObject.ERROR) {
+                                Log.d("ERROR", it.message)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

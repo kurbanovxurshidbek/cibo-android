@@ -41,4 +41,6 @@
     <string name="str_scan_title">Swipe for scan</string>
     <string name="str_scan_description">By scanning you can view <b> our menu </b> and place <b> orders </b></string>
     <string name="str_add_to_cart">Add to cart</string>
+    <string name="str_order_number">Order number</string>
+    <string name="str_order_time">Date</string>
 </resources>

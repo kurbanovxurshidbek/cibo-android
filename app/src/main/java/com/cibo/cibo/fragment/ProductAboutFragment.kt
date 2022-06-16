@@ -10,9 +10,10 @@ import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.cibo.cibo.databinding.ProductAboutFragmentBinding
-import com.cibo.cibo.model.Food
 import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment
 import com.cibo.cibo.R
+import com.cibo.cibo.model.Food
+import com.cibo.cibo.utils.Constants.LOAD_ATTACH_URL
 
 
 class ProductAboutFragment : SuperBottomSheetFragment() {
@@ -64,11 +65,11 @@ class ProductAboutFragment : SuperBottomSheetFragment() {
         val food: Food = arguments?.getSerializable("productAbout") as Food
         val isAbout: Boolean = arguments?.getBoolean("isAbout") as Boolean
         bn.apply {
-            tvProductAbout.text = food.about
-            tvProductName.text = food.content
-            tvProductPrice.text = food.price?.toInt().toString().plus(" so'm")
+            tvProductAbout.text = food.description
+            tvProductName.text = food.name
+            tvProductPrice.text = food.price.toString().plus(" so'm")
             tvProductCount.text = productCount.toString()
-            Glide.with(requireContext()).load(food.img).into(bn.ivFoodDetail)
+            Glide.with(requireContext()).load(LOAD_ATTACH_URL + food.attachId).into(bn.ivFoodDetail)
 
             if (isAbout) viewSetParamsFood.visibility = View.GONE
 

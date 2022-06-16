@@ -3,11 +3,7 @@ package com.cibo.cibo.adapter
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -16,8 +12,8 @@ import com.bumptech.glide.Glide
 import com.cibo.cibo.R
 import com.cibo.cibo.databinding.ItemFoodBinding
 import com.cibo.cibo.fragment.RestaurantFragment
-import com.cibo.cibo.model.Category
 import com.cibo.cibo.model.Food
+import com.cibo.cibo.utils.Constants.LOAD_ATTACH_URL
 
 class ItemsAdapter(private val context: RestaurantFragment) :
     RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
@@ -42,9 +38,13 @@ class ItemsAdapter(private val context: RestaurantFragment) :
             args.putBoolean("isAbout", false)
 
             binding.apply {
-                tvFoodName.text = food.content
-                Glide.with(context).load(food.img).placeholder(R.color.main_silver_light).into(ivFoodPhoto)
-                tvFoodPrice.text = food.price?.toInt().toString().plus(" so'm")
+                tvFoodName.text = food.name
+
+                Glide.with(context).load(LOAD_ATTACH_URL + food.attachId)
+                    .placeholder(R.color.main_silver_light)
+                    .into(ivFoodPhoto)
+
+                tvFoodPrice.text = food.price.toString().plus(" so'm")
 
                 btnCountMinus.setOnClickListener {
                     context.openCartButton(1, food)
@@ -66,7 +66,7 @@ class ItemsAdapter(private val context: RestaurantFragment) :
     companion object {
         private val ITEM_DIFF = object : DiffUtil.ItemCallback<Food>() {
             override fun areItemsTheSame(oldItem: Food, newItem: Food): Boolean =
-                oldItem.content == newItem.content
+                oldItem.name == newItem.name
 
             @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(oldItem: Food, newItem: Food): Boolean =

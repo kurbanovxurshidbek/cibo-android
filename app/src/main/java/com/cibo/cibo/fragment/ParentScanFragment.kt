@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cibo.cibo.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ParentScanFragment : Fragment() {
 
     override fun onCreateView(

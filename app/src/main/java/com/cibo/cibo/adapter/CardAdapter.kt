@@ -1,24 +1,19 @@
 package com.cibo.cibo.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResult
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.cibo.cibo.R
-import com.cibo.cibo.databinding.ItemCategoryBinding
 import com.cibo.cibo.databinding.ItemTrashBinding
 import com.cibo.cibo.fragment.CardFragment
 import com.cibo.cibo.model.Card
-import com.cibo.cibo.model.Category
+import com.cibo.cibo.utils.Constants.LOAD_ATTACH_URL
 
 
 class CardAdapter : RecyclerView.Adapter<CardAdapter.VH>() {
@@ -35,9 +30,9 @@ class CardAdapter : RecyclerView.Adapter<CardAdapter.VH>() {
             binding.apply {
                 tvProductCount.text = details.count.toString()
                 val food = details.food
-                Glide.with(root.context).load(food.img).into(tvProductImg)
-                tvProductName.text = food.content
-                tvProductPrice.text = food.price?.toInt()?.times(details.count).toString() + " so'm"
+                Glide.with(root.context).load(LOAD_ATTACH_URL + food.attachId).into(tvProductImg)
+                tvProductName.text = food.name
+                tvProductPrice.text = food.price.times(details.count).toString() + " so'm"
 
                 btnCountMinus.setOnClickListener {
                     if (tvProductCount.text.toString().toInt() == 1) {
