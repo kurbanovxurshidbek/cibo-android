@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.*
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColor
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
@@ -45,8 +46,6 @@ class EditProfileFragment : BaseFragment() {
             R.color.black,
             R.color.white,
             View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
-        requireActivity().getWindow()
-            .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         _bn = FragmentEditProfileBinding.inflate(inflater, container, false)
         return bn.root
     }
