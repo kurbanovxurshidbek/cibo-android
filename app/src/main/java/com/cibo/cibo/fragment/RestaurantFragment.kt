@@ -66,7 +66,7 @@ class RestaurantFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupObservers()
+//        setupObservers()
     }
 
     override fun onStart() {
