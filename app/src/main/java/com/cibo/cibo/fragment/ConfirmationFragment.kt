@@ -26,9 +26,11 @@ class ConfirmationFragment : BaseFragment() {
     private var sec = 10
     private var secondJob : Job?=null
 
+    private var seconJob: Job? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _bn = FragmentConfirmationBinding.inflate(inflater, container, false)
         return bn.root
@@ -39,6 +41,7 @@ class ConfirmationFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showKeyboard(bn.ed1)
+        seconJob = perSecond()
         secondJob=perSecond()
         phoneNumberColor()
         inputSmsCodeManager()
@@ -237,6 +240,7 @@ class ConfirmationFragment : BaseFragment() {
             }
         }
     }
+
 
 
     override fun onDestroyView() {

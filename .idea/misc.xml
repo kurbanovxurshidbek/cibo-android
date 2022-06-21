@@ -55,30 +55,23 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_shopping_basket.xml" value="0.1665" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_shopping_basket_bold.xml" value="0.1115" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/ic_trash.xml" value="0.2075" />
-<<<<<<< HEAD
-=======
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/menu_item_basket.xml" value="0.2415" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/menu_item_menu.xml" value="0.2415" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/menu_item_profile.xml" value="0.1" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/shape_circle_background.xml" value="0.2075" />
->>>>>>> 2239c07763cb59dd84ce13c078263d02839aaecd
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/shape_rectangle_plus_minus.xml" value="0.205" />
-<<<<<<< HEAD
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/shape_top_corner_rounded.xml" value="0.2205" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/tab_item_background.xml" value="0.1865" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/tab_item_selected_false.xml" value="0.1865" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/drawable/tab_item_selected_true.xml" value="0.1865" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_intro_page.xml" value="0.264" />
-=======
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_intro_page.xml" value="0.27447916666666666" />
->>>>>>> bf7d408bf6fe8ff20a8689137230741d842bb828
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/bottom_sheet.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_aboutus.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_card.xml" value="0.264" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_cart.xml" value="0.1265625" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
-<<<<<<< HEAD
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_edit_profile.xml" value="0.1" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_profile.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_restaurant.xml" value="0.175" />
@@ -87,13 +80,11 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_category_last.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_food.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_intro_page.xml" value="0.264" />
-=======
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_restaurant.xml" value="0.1" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/fragment_scan.xml" value="0.264" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_category.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_category_last.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_intro_page.xml" value="0.1265625" />
->>>>>>> bf7d408bf6fe8ff20a8689137230741d842bb828
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_item.xml" value="0.264" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/item_trash.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/cibo-android/app/src/main/res/layout/product_about_fragment.xml" value="0.264" />
